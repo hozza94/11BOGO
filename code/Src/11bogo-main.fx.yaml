@@ -127,8 +127,8 @@
         HoverColor: =RGBA(255, 255, 255, 0%)
         HoverFill: =RGBA(255, 255, 255, 0%)
         OnSelect: |-
-            =Notify("빠른 시일내에 다시 오픈하겠습니다. '^'", NotificationType.Information, 2000);
-            //Launch( "https://github.com/hozza94/11BOGO" )
+            =//Notify("빠른 시일내에 다시 오픈하겠습니다. '^'", NotificationType.Information, 2000);
+            Launch( "https://github.com/hozza94/11BOGO" )
         PaddingBottom: =0
         PaddingLeft: =0
         PaddingRight: =0
