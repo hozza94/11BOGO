@@ -1,0 +1,29 @@
+hidden As screen:
+    BackgroundImage: =bgi_resize
+    OnVisible: |-
+        =UpdateContext({
+            poem_range : CountRows(POEM_TB)
+        });
+        
+        UpdateContext({
+            html_poem : LookUp(POEM_TB, POEM_NO = Text(RandBetween(1, poem_range))).POEM_CONTENT
+        });
+
+    timer As timer:
+        AutoStart: =true
+        Duration: =4000
+        Height: =60
+        OnTimerEnd: =Navigate('11bogo-main')
+        Visible: =false
+        Width: =200
+        ZIndex: =1
+
+    html_welcome_msg As htmlViewer:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =500
+        HtmlText: =html_poem
+        Size: =16
+        Width: =640
+        Y: =273
+        ZIndex: =2
+

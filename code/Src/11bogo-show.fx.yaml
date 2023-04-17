@@ -1,0 +1,324 @@
+"'11bogo-show' As screen":
+    BackgroundImage: =bgi_resize
+    OnHidden: =//Clear(colSet);
+    OnVisible: |
+        =Clear(colSendSet);
+
+    btn_title_show As button:
+        BorderThickness: =0
+        DisplayMode: =DisplayMode.View
+        Fill: =RGBA(49, 59, 77, 1)
+        Height: =55
+        HoverFill: =RGBA(49, 59, 77, 1)
+        PressedFill: =RGBA(49, 59, 77, 1)
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =22
+        Text: ="11BOGO - SHOW"
+        Width: =640
+        ZIndex: =9
+
+    lbl_notice As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 0, 0, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =50
+        Size: =16
+        Text: ="* 업데이트 후 조회까지 2-3분정도 소요 될 수 있습니다. *"
+        Width: =560
+        X: =40
+        Y: =1070
+        ZIndex: =26
+
+    grp_icn_show As group:
+        Height: =5
+        Width: =5
+        X: =60
+        Y: =60
+        ZIndex: =27
+
+        icn_set_back_show As icon.BackArrow:
+            Color: =RGBA(255, 255, 255, 1)
+            Height: =55
+            Icon: =Icon.BackArrow
+            OnSelect: =Navigate('11bogo-main');
+            PaddingBottom: =5
+            PaddingLeft: =5
+            PaddingRight: =5
+            PaddingTop: =5
+            Tooltip: ="뒤로가요"
+            Width: =55
+            ZIndex: =11
+
+        icn_edit_page As icon.Edit:
+            Color: =RGBA(255, 255, 255, 1)
+            Height: =55
+            Icon: =Icon.Settings
+            OnSelect: |-
+                =//Navigate('11bogo-setting')
+                ClearCollect(colSet,
+                    {
+                        sol_title : LookUp(SET_INFO_TB, USER_EMAIL = gblUser).SOL_NAME,
+                        sol_detail : LookUp(SET_INFO_TB, USER_EMAIL = gblUser).SOL_DETAIL,
+                        com_id : LookUp(SET_INFO_TB, USER_EMAIL = gblUser).COMPANY_ID,
+                        com_name : LookUp(SET_INFO_TB, USER_EMAIL = gblUser).COMPANY_NAME,
+                        con_id : LookUp(SET_INFO_TB, USER_EMAIL = gblUser).CONT_ID,
+                        con_name : LookUp(SET_INFO_TB, USER_EMAIL = gblUser).CONT_NAME,
+                        cnt_div : LookUp(SET_INFO_TB, USER_EMAIL = gblUser).CONT_VAL,
+                        job_div : LookUp(SET_INFO_TB, USER_EMAIL = gblUser).DIV_VALUE,
+                        free_min : LookUp(SET_INFO_TB, USER_EMAIL = gblUser).FREE_MINUTE, // 추가 23.03.08
+                        paid_min : LookUp(SET_INFO_TB, USER_EMAIL = gblUser).PAID_MINUTE // 추가 23.03.08
+                    }
+                );
+                
+                Navigate('11bogo-modify')
+            PaddingBottom: =5
+            PaddingLeft: =5
+            PaddingRight: =5
+            PaddingTop: =5
+            Tooltip: ="수정화면으로 전환해요"
+            Width: =55
+            X: =580
+            ZIndex: =20
+
+        icn_refresh As icon.Reload:
+            Color: =RGBA(255, 255, 255, 1)
+            Height: =55
+            Icon: =Icon.Sync
+            OnSelect: |
+                =Refresh(SET_INFO_TB);
+                
+                ClearCollect(colSet,
+                    {
+                        sol_title : LookUp(SET_INFO_TB, USER_EMAIL = gblUser).SOL_NAME,
+                        sol_detail : LookUp(SET_INFO_TB, USER_EMAIL = gblUser).SOL_DETAIL,
+                        com_id : LookUp(SET_INFO_TB, USER_EMAIL = gblUser).COMPANY_ID,
+                        com_name : LookUp(SET_INFO_TB, USER_EMAIL = gblUser).COMPANY_NAME,
+                        con_id : LookUp(SET_INFO_TB, USER_EMAIL = gblUser).CONT_ID,
+                        con_name : LookUp(SET_INFO_TB, USER_EMAIL = gblUser).CONT_NAME,
+                        cnt_div : LookUp(SET_INFO_TB, USER_EMAIL = gblUser).CONT_VAL,
+                        job_div : LookUp(SET_INFO_TB, USER_EMAIL = gblUser).DIV_VALUE,
+                        free_min : LookUp(SET_INFO_TB, USER_EMAIL = gblUser).FREE_MINUTE, // 추가 23.03.08
+                        paid_min : LookUp(SET_INFO_TB, USER_EMAIL = gblUser).PAID_MINUTE // 추가 23.03.08
+                    }
+                );
+            PaddingBottom: =5
+            PaddingLeft: =5
+            PaddingRight: =5
+            PaddingTop: =5
+            Tooltip: ="DB와 동기화해요"
+            Width: =55
+            X: =520
+            ZIndex: =25
+
+    lbl_free_min_show As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =50
+        Size: =16
+        Text: ="무상 시간"
+        Width: =110
+        X: =40
+        Y: =1010
+        ZIndex: =31
+
+    grp_lbl_show As group:
+        Height: =5
+        Width: =5
+        X: =60
+        Y: =60
+        ZIndex: =31
+
+        lbl_sol_title_show As label:
+            Color: =RGBA(255, 255, 255, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =50
+            Size: =16
+            Text: ="솔루션 제목"
+            Width: =560
+            X: =40
+            Y: =85
+            ZIndex: =10
+
+        lbl_sol_show As label:
+            Color: =RGBA(255, 255, 255, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =50
+            Size: =16
+            Text: ="솔루션 내용"
+            Width: =560
+            X: =40
+            Y: =225
+            ZIndex: =14
+
+        lbl_company_show As label:
+            Color: =RGBA(255, 255, 255, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =50
+            Size: =16
+            Text: ="회사명"
+            Width: =560
+            X: =40
+            Y: =444
+            ZIndex: =15
+
+        lbl_contract_show As label:
+            Color: =RGBA(255, 255, 255, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =50
+            Size: =16
+            Text: ="계약명"
+            Width: =560
+            X: =40
+            Y: =575
+            ZIndex: =19
+
+        lbl_sol_title As label:
+            BorderColor: =RGBA(255, 255, 255, 1)
+            BorderThickness: =2
+            Color: =RGBA(255, 255, 255, 1)
+            FontWeight: =FontWeight.Semibold
+            Height: =70
+            OnSelect: =First(colSet).sol_title
+            PaddingLeft: =12
+            Size: =16
+            Text: =First(colSet).sol_title
+            Width: =560
+            X: =40
+            Y: =135
+            ZIndex: =21
+
+        lbl_sol_detail As label:
+            BorderColor: =RGBA(255, 255, 255, 1)
+            BorderThickness: =2
+            Color: =RGBA(255, 255, 255, 1)
+            FontWeight: =FontWeight.Semibold
+            Height: =150
+            Size: =16
+            Text: =First(colSet).sol_detail
+            Width: =560
+            X: =40
+            Y: =275
+            ZIndex: =22
+
+        lbl_com_name As label:
+            BorderColor: =RGBA(255, 255, 255, 1)
+            BorderThickness: =2
+            Color: =RGBA(255, 255, 255, 1)
+            FontWeight: =FontWeight.Semibold
+            Height: =60
+            Size: =16
+            Text: =First(colSet).com_name
+            Width: =560
+            X: =40
+            Y: =495
+            ZIndex: =23
+
+        lbl_con_name As label:
+            BorderColor: =RGBA(255, 255, 255, 1)
+            BorderThickness: =2
+            Color: =RGBA(255, 255, 255, 1)
+            FontWeight: =FontWeight.Semibold
+            Height: =60
+            Size: =16
+            Text: =First(colSet).con_name
+            Width: =560
+            X: =40
+            Y: =625
+            ZIndex: =24
+
+        lbl_contract_div_show As label:
+            Color: =RGBA(255, 255, 255, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =50
+            Size: =16
+            Text: ="계약구분"
+            Width: =560
+            X: =40
+            Y: =720
+            ZIndex: =27
+
+        lbl_job_div_show As label:
+            Color: =RGBA(255, 255, 255, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =50
+            Size: =16
+            Text: ="업무구분"
+            Width: =560
+            X: =40
+            Y: =855
+            ZIndex: =28
+
+        lbl_job_div_show_content As label:
+            BorderColor: =RGBA(255, 255, 255, 1)
+            BorderThickness: =2
+            Color: =RGBA(255, 255, 255, 1)
+            FontWeight: =FontWeight.Semibold
+            Height: =60
+            Size: =16
+            Text: =First(colSet).cnt_div
+            Width: =560
+            X: =40
+            Y: =775
+            ZIndex: =29
+
+        lbl_con_div_show_content As label:
+            BorderColor: =RGBA(255, 255, 255, 1)
+            BorderThickness: =2
+            Color: =RGBA(255, 255, 255, 1)
+            FontWeight: =FontWeight.Semibold
+            Height: =60
+            Size: =16
+            Text: =First(colSet).job_div
+            Width: =560
+            X: =40
+            Y: =905
+            ZIndex: =30
+
+    lbl_free_min_show_content As label:
+        Align: =Align.Center
+        BorderColor: =RGBA(255, 255, 255, 1)
+        BorderThickness: =2
+        Color: =RGBA(255, 255, 255, 1)
+        FontWeight: =FontWeight.Semibold
+        Height: =50
+        Size: =16
+        Text: =First(colSet).free_min
+        Width: =100
+        Wrap: =false
+        X: |
+            =lbl_free_min_show.X + 140
+        Y: =1010
+        ZIndex: =32
+
+    lbl_paid_min_show As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =50
+        Size: =16
+        Text: ="유상 시간"
+        Width: =110
+        X: =360
+        Y: =1010
+        ZIndex: =33
+
+    lbl_paid_min_show_content As label:
+        Align: =Align.Center
+        BorderColor: =RGBA(255, 255, 255, 1)
+        BorderThickness: =2
+        Color: =RGBA(255, 255, 255, 1)
+        FontWeight: =FontWeight.Semibold
+        Height: =50
+        Size: =16
+        Text: =First(colSet).paid_min
+        Width: =100
+        Wrap: =false
+        X: |
+            =lbl_paid_min_show.X + 140
+        Y: =1010
+        ZIndex: =34
+

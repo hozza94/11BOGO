@@ -1,0 +1,246 @@
+"'11bogo-main' As screen":
+    BackgroundImage: =bgi_resize
+    OnVisible: |+
+        =If(
+            gblNotiFlag = "N",
+            // 업데이트 공지
+            Notify("ver 0.73 휴가 입력 기능 오픈!
+            휴가일정을 관리해봐요! '^'", NotificationType.Information, 3000);
+            Set(gblNotiFlag, "Y");
+            Patch(USER_TB, First(Filter(USER_TB, USER_EMAIL = gblUser)),{NOTI_FLAG: "Y"});
+        );
+        
+
+    icn_write As icon.Settings:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =60
+        Icon: =Icon.Edit
+        OnSelect: =Navigate('11bogo-setting');
+        Tooltip: ="새로 작성해요"
+        Width: =60
+        X: =160
+        Y: =260
+        ZIndex: =1
+
+    icn_vaca As icon.Add:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =60
+        Icon: =Icon.Airplane
+        OnSelect: |-
+            =//Notify("휴가기간 추가 기능은 현재 개발중!! '^'", NotificationType.Information, 2000);
+            Set( new_click_flag, false );
+            
+            
+            Refresh(VACA_TB);
+            Navigate('11bogo-vaca');
+        Tooltip: ="휴가를 입력해요"
+        Width: =60
+        X: =160
+        Y: =440
+        ZIndex: =2
+
+    icn_show As icon.DocumentwithContent:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =60
+        Icon: =Icon.Post
+        OnSelect: |+
+            =ClearCollect(colSet,
+                {
+                    sol_title : LookUp(SET_INFO_TB, USER_EMAIL = gblUser).SOL_NAME,
+                    sol_detail : LookUp(SET_INFO_TB, USER_EMAIL = gblUser).SOL_DETAIL,
+                    com_id : LookUp(SET_INFO_TB, USER_EMAIL = gblUser).COMPANY_ID,
+                    com_name : LookUp(SET_INFO_TB, USER_EMAIL = gblUser).COMPANY_NAME,
+                    con_id : LookUp(SET_INFO_TB, USER_EMAIL = gblUser).CONT_ID,
+                    con_name : LookUp(SET_INFO_TB, USER_EMAIL = gblUser).CONT_NAME,
+                    cnt_div : LookUp(SET_INFO_TB, USER_EMAIL = gblUser).CONT_VAL,
+                    job_div : LookUp(SET_INFO_TB, USER_EMAIL = gblUser).DIV_VALUE,
+                    free_min : LookUp(SET_INFO_TB, USER_EMAIL = gblUser).FREE_MINUTE, // 추가 23.03.08
+                    paid_min : LookUp(SET_INFO_TB, USER_EMAIL = gblUser).PAID_MINUTE // 추가 23.03.08
+                }
+            );
+            
+            Navigate('11bogo-show')
+            
+        Tooltip: ="저장내용을 조회해요"
+        Width: =60
+        X: =410
+        Y: =260
+        ZIndex: =3
+
+    version As label:
+        Align: =Align.Right
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =38
+        Size: =12
+        Text: ="DEAR LHCN / version 0.73 Copyright 2023. 945"
+        Tooltip: ="LHCN에게 바칩니다."
+        Width: =640
+        Y: =1098
+        ZIndex: =4
+
+    icn_exit As icon.Leave:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =60
+        Icon: =Icon.Leave
+        OnSelect: =Exit();
+        Tooltip: ="나갈거에요..?"
+        Width: =60
+        X: =290
+        Y: =800
+        ZIndex: =5
+
+    html_welcome As htmlViewer:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =38
+        HtmlText: ="<center> 환영합니다! <b>" & gblName & "</b> 님 오늘도 감사와 행복이 가득하길 <b>" & "' ^ '" & "</b><center>"
+        Size: =14
+        Width: =640
+        Y: =162
+        ZIndex: =6
+
+    Label4 As label:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =70
+        Size: =21
+        Text: =App.Width & " / " & App.Height
+        Visible: =false
+        Width: =560
+        X: =40
+        Y: =40
+        ZIndex: =7
+
+    github_img As image:
+        Height: =110
+        Image: =git_icon_1_w
+        OnSelect: |-
+            =Launch( "https://github.com/hozza94/11BOGO" )
+        Width: =110
+        X: =530
+        Y: =1010
+        ZIndex: =8
+
+    github_btn As button:
+        Color: =RGBA(255, 255, 255, 0%)
+        DisabledFill: =RGBA(255, 255, 255, 0%)
+        Fill: =RGBA(255, 255, 255, 0%)
+        Height: =110
+        HoverColor: =RGBA(255, 255, 255, 0%)
+        HoverFill: =RGBA(255, 255, 255, 0%)
+        OnSelect: |-
+            =Notify("빠른 시일내에 다시 오픈하겠습니다. '^'", NotificationType.Information, 2000);
+            //Launch( "https://github.com/hozza94/11BOGO" )
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0
+        PaddingTop: =0
+        Size: =24
+        Text: =
+        Tooltip: ="Go Git!"
+        Width: =110
+        X: =530
+        Y: =1010
+        ZIndex: =9
+
+    icn_set As icon.Settings:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =60
+        Icon: =Icon.Settings
+        OnSelect: |-
+            =ClearCollect(colSet,
+                {
+                    sol_title : LookUp(SET_INFO_TB, USER_EMAIL = gblUser).SOL_NAME,
+                    sol_detail : LookUp(SET_INFO_TB, USER_EMAIL = gblUser).SOL_DETAIL,
+                    com_id : LookUp(SET_INFO_TB, USER_EMAIL = gblUser).COMPANY_ID,
+                    com_name : LookUp(SET_INFO_TB, USER_EMAIL = gblUser).COMPANY_NAME,
+                    con_id : LookUp(SET_INFO_TB, USER_EMAIL = gblUser).CONT_ID,
+                    con_name : LookUp(SET_INFO_TB, USER_EMAIL = gblUser).CONT_NAME,
+                    cnt_div : LookUp(SET_INFO_TB, USER_EMAIL = gblUser).CONT_VAL,
+                    job_div : LookUp(SET_INFO_TB, USER_EMAIL = gblUser).DIV_VALUE,
+                    free_min : LookUp(SET_INFO_TB, USER_EMAIL = gblUser).FREE_MINUTE, // 추가 23.03.08
+                    paid_min : LookUp(SET_INFO_TB, USER_EMAIL = gblUser).PAID_MINUTE // 추가 23.03.08
+                }
+            );
+            
+            Navigate('11bogo-modify');
+        Tooltip: ="보고 수정해요"
+        Width: =60
+        X: =290
+        Y: =260
+        ZIndex: =10
+
+    img_OnOff As image:
+        Height: =60
+        Image: |-
+            =If( 
+                gblAlarmOnOff = "Y",
+                stopbtn_negative,
+                playbtn_negative
+            )
+        Width: =60
+        X: =410
+        Y: =440
+        ZIndex: =11
+
+    lbl_free_min_1 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        FontWeight: =FontWeight.Semibold
+        Height: =50
+        Size: =14
+        Text: ="플로우 on/off 설정"
+        Width: =200
+        X: =340
+        Y: =390
+        ZIndex: =12
+
+    onoff_btn_ As button:
+        BorderStyle: =BorderStyle.None
+        Color: =RGBA(255, 255, 255, 0%)
+        DisabledFill: =RGBA(255, 255, 255, 0%)
+        Fill: =RGBA(255, 255, 255, 0%)
+        Height: =60
+        HoverColor: =RGBA(255, 255, 255, 0%)
+        HoverFill: =RGBA(255, 255, 255, 0%)
+        OnSelect: |-
+            =If(
+                gblAlarmOnOff = "Y",
+                Set(gblAlarmOnOff, "N");
+                Patch(SET_INFO_TB, LookUp(SET_INFO_TB, USER_EMAIL = gblUser), { TODAY_RUN_YN: "N"});
+                Notify("자동 입력 OFF! '^'", NotificationType.Success, 2000);
+                ,
+                Set(gblAlarmOnOff, "Y");
+                Patch(SET_INFO_TB, LookUp(SET_INFO_TB, USER_EMAIL = gblUser), { TODAY_RUN_YN: "Y"});
+                Notify("자동 입력 ON! '^'", NotificationType.Success, 2000);
+            )
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0
+        PaddingTop: =0
+        PressedBorderColor: =
+        Size: =24
+        Text: =
+        Tooltip: ="입력 On/Off 스위치"
+        Width: =60
+        X: =410
+        Y: =440
+        ZIndex: =13
+
+    lbl_free_min_2 As label:
+        Color: =RGBA(255, 255, 255, 1)
+        FontWeight: =FontWeight.Lighter
+        Height: =38
+        Size: =12
+        Text: =Today()
+        Width: =200
+        Y: =1098
+        ZIndex: =14
+
+    img_new_icn As image:
+        Height: =45
+        Image: =new
+        Visible: =new_click_flag
+        Width: =45
+        X: =130
+        Y: =410
+        ZIndex: =15
+

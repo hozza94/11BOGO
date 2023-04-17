@@ -1,0 +1,48 @@
+[
+  {
+    "ApiId": "/providers/microsoft.powerapps/apis/shared_sharepointonline",
+    "CdpRevision": {
+      "BaseUrl": "/",
+      "LastChangedTimeString": "2023-03-27T17:17:22.6550000Z",
+      "RevisionNumber": 1
+    },
+    "ConnectedDataSourceInfoNameMapping": {
+      "{Attachments}": "첨부 파일",
+      "{Attachments}@odata.type": "{Attachments} ({Attachments}@odata.type)",
+      "{FilenameWithExtension}": "파일 이름(확장명 포함)",
+      "{FullPath}": "전체 경로",
+      "{HasAttachments}": "첨부 파일 있음",
+      "{Identifier}": "ID ({Identifier})",
+      "{IsFolder}": "폴더",
+      "{Link}": "항목 링크",
+      "{ModerationComment}": "이 목록 항목의 콘텐츠 승인과 관련된 메모",
+      "{ModerationStatus}": "콘텐츠 승인 상태",
+      "{Name}": "이름",
+      "{Path}": "폴더 경로",
+      "{Thumbnail}": "축소판 그림",
+      "{TriggerWindowEndToken}": "트리거 창 끝 토큰",
+      "{TriggerWindowStartToken}": "트리거 창 시작 토큰",
+      "{VersionNumber}": "버전 번호",
+      "Author": "만든 사람",
+      "Author#Claims": "만든 사람 Claims",
+      "ComplianceAssetId": "자산 ID 규정 준수",
+      "Created": "만든 날짜",
+      "Editor": "수정한 사람",
+      "Editor#Claims": "수정한 사람 Claims",
+      "ID": "ID",
+      "Modified": "수정된 날짜",
+      "OData__ColorTag": "Color Tag",
+      "OData__xac70__xb798__xcc98__xc774__xb9": "거래처명",
+      "OData__xb2f4__xb2f9__xc790_": "담당자",
+      "OData__xc0c1__xd0dc_": "상태",
+      "OData__xc124__xba85_": "설명",
+      "Title": "Title"
+    },
+    "DatasetName": "https://mavenkr.sharepoint.com/sites/maven_dailyReport",
+    "EncodeDataset": true,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "Name": "거래처",
+    "Type": "ConnectedDataSourceInfo"
+  }
+]
