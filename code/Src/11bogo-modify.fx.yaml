@@ -1,7 +1,7 @@
 "'11bogo-modify' As screen":
     BackgroundImage: =bgi_resize
     OnHidden: |-
-        =Clear(colSendSet);
+        =Clear(colSendSetv2);
         
         // 계약구분 VALUE
         UpdateContext({
@@ -30,7 +30,7 @@
         });*/
         // 현재 작성한 정보 컬렉션에 저장
         
-        Clear(colSendSet);
+        Clear(colSendSetv2);
         
         // 계약구분 VALUE
         UpdateContext({
@@ -799,7 +799,7 @@
                 Reset(txt_sol_title_write);
                 Reset(cmb_cnt_modify);
                 Reset(cmb_job_modify);
-                Clear(colSendSet);
+                Clear(colSendSetv2);
             PaddingBottom: =5
             PaddingLeft: =5
             PaddingRight: =5

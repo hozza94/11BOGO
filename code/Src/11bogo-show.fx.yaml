@@ -2,7 +2,7 @@
     BackgroundImage: =bgi_resize
     OnHidden: =//Clear(colSet);
     OnVisible: |
-        =Clear(colSendSet);
+        =Clear(colSendSetv2);
 
     btn_title_show As button:
         BorderThickness: =0
