@@ -766,7 +766,7 @@
                 )
             Height: =55
             Icon: =Icon.BackArrow
-            OnSelect: |
+            OnSelect: |-
                 =Navigate('11bogo-main');
                 Reset(lb_search_company);
                 Reset(lb_search_contract);
