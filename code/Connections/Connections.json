@@ -1,4 +1,43 @@
 {
+  "08780b72-06f8-47a6-affa-e5d34bdf79ae": {
+    "connectionRef": {
+      "authenticationType": "sqlAuthentication",
+      "displayName": "SQL Server",
+      "gatewayObjectIdHint": "821dc002-3b69-4e78-822f-4bbe616ec854",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1629/1.0.1629.3253/sql/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sql",
+      "isOnPremiseConnection": true,
+      "sharedConnectionId": "/providers/microsoft.powerapps/apis/shared_sql/connections/shared-sql-8853c412-5e2c-4eb7-bdc2-390ae36aa01d"
+    },
+    "datasets": {
+      "192.168.0.9,BOGO": {
+        "dataSources": {
+          "POEM_TB_V2": {
+            "tableName": "[dbo].[POEM_TB_V2]"
+          },
+          "SET_INFO_TB_V2": {
+            "tableName": "[dbo].[SET_INFO_TB_V2]"
+          },
+          "USER_TB_V2": {
+            "tableName": "[dbo].[USER_TB_V2]"
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "POEM_TB_V2",
+      "SET_INFO_TB_V2",
+      "USER_TB_V2"
+    ],
+    "dependencies": {},
+    "dependents": [
+      "d4bddd53-3800-46db-a253-18520c8b6c8c"
+    ],
+    "endpoints": [
+      "192.168.0.9,BOGO"
+    ],
+    "id": "08780b72-06f8-47a6-affa-e5d34bdf79ae"
+  },
   "1c5ed3bd-8a62-4003-84ac-901f159e79e0": {
     "connectionRef": {
       "apiTier": "Standard",
@@ -72,7 +111,8 @@
     "dependencies": {},
     "dependents": [
       "f8c56581-800a-4cfc-8ada-fea7bf137d46",
-      "8689bdf4-fb4b-493d-bb73-d45c5cd69a8c"
+      "8689bdf4-fb4b-493d-bb73-d45c5cd69a8c",
+      "d4bddd53-3800-46db-a253-18520c8b6c8c"
     ],
     "id": "9455fd2f-4036-4046-8507-cee2f4cc3298"
   },
@@ -104,6 +144,54 @@
     "dependencies": {},
     "dependents": [],
     "id": "d328fff2-9a3f-45d0-af2c-840ba0aad43a"
+  },
+  "d4bddd53-3800-46db-a253-18520c8b6c8c": {
+    "connectionRef": {
+      "displayName": "Logic flows",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1615/1.0.1615.3163/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "08780b72-06f8-47a6-affa-e5d34bdf79ae": {
+          "value": "shared_sql"
+        },
+        "9455fd2f-4036-4046-8507-cee2f4cc3298": {
+          "value": "shared_teams"
+        },
+        "d54cd8e4-79ec-446e-870f-23696269c2e0": {
+          "value": "shared_excelonlinebusiness"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "67b674f3-bedb-4d54-b7da-12244cd4bc9b"
+        }
+      },
+      "parameterHintsV2": {
+        "shared_excelonlinebusiness": {
+          "value": "d54cd8e4-79ec-446e-870f-23696269c2e0"
+        },
+        "shared_sql": {
+          "value": "08780b72-06f8-47a6-affa-e5d34bdf79ae"
+        },
+        "shared_teams": {
+          "value": "9455fd2f-4036-4046-8507-cee2f4cc3298"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "67b674f3-bedb-4d54-b7da-12244cd4bc9b"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "11BOGO_SET_INFOVer.2(SQLSERVER)"
+    ],
+    "dependencies": {
+      "shared_excelonlinebusiness": "d54cd8e4-79ec-446e-870f-23696269c2e0",
+      "shared_sql": "08780b72-06f8-47a6-affa-e5d34bdf79ae",
+      "shared_teams": "9455fd2f-4036-4046-8507-cee2f4cc3298"
+    },
+    "dependents": [],
+    "id": "d4bddd53-3800-46db-a253-18520c8b6c8c"
   },
   "d54cd8e4-79ec-446e-870f-23696269c2e0": {
     "connectionRef": {
@@ -145,7 +233,8 @@
     "dependencies": {},
     "dependents": [
       "f8c56581-800a-4cfc-8ada-fea7bf137d46",
-      "8689bdf4-fb4b-493d-bb73-d45c5cd69a8c"
+      "8689bdf4-fb4b-493d-bb73-d45c5cd69a8c",
+      "d4bddd53-3800-46db-a253-18520c8b6c8c"
     ],
     "id": "d54cd8e4-79ec-446e-870f-23696269c2e0"
   },

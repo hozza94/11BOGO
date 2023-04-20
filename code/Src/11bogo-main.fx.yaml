@@ -1,15 +1,15 @@
 "'11bogo-main' As screen":
     BackgroundImage: =bgi_resize
-    OnVisible: |+
+    OnVisible: |-
         =If(
             gblNotiFlag = "N",
             // 업데이트 공지
-            Notify("ver 0.73 휴가 입력 기능 오픈!
-            휴가일정을 관리해봐요! '^'", NotificationType.Information, 3000);
+            Notify("ver 0.8 DB 업데이트!
+            이제 SQL SERVER를 연결해서 훨씬 업데이트가 빨라졌어요!'^'", NotificationType.Information, 3000);
             Set(gblNotiFlag, "Y");
-            Patch(USER_TB, First(Filter(USER_TB, USER_EMAIL = gblUser)),{NOTI_FLAG: "Y"});
+            //Patch(USER_TB, First(Filter(USER_TB, USER_EMAIL = gblUser)),{NOTI_FLAG: "Y"});
+            Patch(USER_TB_V2, First(Filter(USER_TB_V2, USER_EMAIL = gblUser)),{NOTI_FLAG: "Y"});
         );
-        
 
     icn_write As icon.Settings:
         Color: =RGBA(255, 255, 255, 1)
@@ -44,7 +44,7 @@
         Height: =60
         Icon: =Icon.Post
         OnSelect: |+
-            =ClearCollect(colSet,
+            =/*ClearCollect(colSet,
                 {
                     sol_title : LookUp(SET_INFO_TB, USER_EMAIL = gblUser).SOL_NAME,
                     sol_detail : LookUp(SET_INFO_TB, USER_EMAIL = gblUser).SOL_DETAIL,
@@ -56,6 +56,22 @@
                     job_div : LookUp(SET_INFO_TB, USER_EMAIL = gblUser).DIV_VALUE,
                     free_min : LookUp(SET_INFO_TB, USER_EMAIL = gblUser).FREE_MINUTE, // 추가 23.03.08
                     paid_min : LookUp(SET_INFO_TB, USER_EMAIL = gblUser).PAID_MINUTE // 추가 23.03.08
+                }
+            );*/
+            
+            // 23.04.20 SQL SERVER 연결로 인해 collection 변화
+            ClearCollect(colSet,
+                {
+                    sol_title : LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).SOL_NAME,
+                    sol_detail : LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).SOL_DETAIL,
+                    com_id : Text(LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).COMPANY_ID),
+                    com_name : LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).COMPANY_NAME,
+                    con_id : Text(LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).CONT_ID),
+                    con_name : LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).CONT_NAME,
+                    cnt_div : LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).CONT_VAL,
+                    job_div : LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).DIV_VALUE,
+                    free_min : Text(LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).FREE_MINUTE), // 추가 23.03.08
+                    paid_min : Text(LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).PAID_MINUTE) // 추가 23.03.08
                 }
             );
             
@@ -146,7 +162,7 @@
         Height: =60
         Icon: =Icon.Settings
         OnSelect: |-
-            =ClearCollect(colSet,
+            =/*ClearCollect(colSet,
                 {
                     sol_title : LookUp(SET_INFO_TB, USER_EMAIL = gblUser).SOL_NAME,
                     sol_detail : LookUp(SET_INFO_TB, USER_EMAIL = gblUser).SOL_DETAIL,
@@ -158,6 +174,22 @@
                     job_div : LookUp(SET_INFO_TB, USER_EMAIL = gblUser).DIV_VALUE,
                     free_min : LookUp(SET_INFO_TB, USER_EMAIL = gblUser).FREE_MINUTE, // 추가 23.03.08
                     paid_min : LookUp(SET_INFO_TB, USER_EMAIL = gblUser).PAID_MINUTE // 추가 23.03.08
+                }
+            );*/
+            
+            // 23.04.20 SQL SERVER 연결로 인해 collection 변화
+            ClearCollect(colSet,
+                {
+                    sol_title : LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).SOL_NAME,
+                    sol_detail : LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).SOL_DETAIL,
+                    com_id : Text(LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).COMPANY_ID),
+                    com_name : LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).COMPANY_NAME,
+                    con_id : Text(LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).CONT_ID),
+                    con_name : LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).CONT_NAME,
+                    cnt_div : LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).CONT_VAL,
+                    job_div : LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).DIV_VALUE,
+                    free_min : Text(LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).FREE_MINUTE), // 추가 23.03.08
+                    paid_min : Text(LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).PAID_MINUTE) // 추가 23.03.08
                 }
             );
             
@@ -181,7 +213,7 @@
         Y: =440
         ZIndex: =11
 
-    lbl_free_min_1 As label:
+    lbl_onoff As label:
         Align: =Align.Center
         Color: =RGBA(255, 255, 255, 1)
         FontWeight: =FontWeight.Semibold
@@ -225,7 +257,7 @@
         Y: =440
         ZIndex: =13
 
-    lbl_free_min_2 As label:
+    lbl_today As label:
         Color: =RGBA(255, 255, 255, 1)
         FontWeight: =FontWeight.Lighter
         Height: =38

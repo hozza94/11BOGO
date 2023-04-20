@@ -60,16 +60,16 @@
                 =//Navigate('11bogo-setting')
                 ClearCollect(colSet,
                     {
-                        sol_title : LookUp(SET_INFO_TB, USER_EMAIL = gblUser).SOL_NAME,
-                        sol_detail : LookUp(SET_INFO_TB, USER_EMAIL = gblUser).SOL_DETAIL,
-                        com_id : LookUp(SET_INFO_TB, USER_EMAIL = gblUser).COMPANY_ID,
-                        com_name : LookUp(SET_INFO_TB, USER_EMAIL = gblUser).COMPANY_NAME,
-                        con_id : LookUp(SET_INFO_TB, USER_EMAIL = gblUser).CONT_ID,
-                        con_name : LookUp(SET_INFO_TB, USER_EMAIL = gblUser).CONT_NAME,
-                        cnt_div : LookUp(SET_INFO_TB, USER_EMAIL = gblUser).CONT_VAL,
-                        job_div : LookUp(SET_INFO_TB, USER_EMAIL = gblUser).DIV_VALUE,
-                        free_min : LookUp(SET_INFO_TB, USER_EMAIL = gblUser).FREE_MINUTE, // 추가 23.03.08
-                        paid_min : LookUp(SET_INFO_TB, USER_EMAIL = gblUser).PAID_MINUTE // 추가 23.03.08
+                        sol_title : LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).SOL_NAME,
+                        sol_detail : LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).SOL_DETAIL,
+                        com_id : Text(LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).COMPANY_ID),
+                        com_name : LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).COMPANY_NAME,
+                        con_id : Text(LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).CONT_ID),
+                        con_name : LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).CONT_NAME,
+                        cnt_div : LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).CONT_VAL,
+                        job_div : LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).DIV_VALUE,
+                        free_min : Text(LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).FREE_MINUTE), // 추가 23.03.08
+                        paid_min : Text(LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).PAID_MINUTE) // 추가 23.03.08
                     }
                 );
                 
@@ -80,16 +80,33 @@
             PaddingTop: =5
             Tooltip: ="수정화면으로 전환해요"
             Width: =55
-            X: =580
+            X: =585
             ZIndex: =20
 
         icn_refresh As icon.Reload:
             Color: =RGBA(255, 255, 255, 1)
             Height: =55
             Icon: =Icon.Sync
-            OnSelect: |
-                =Refresh(SET_INFO_TB);
+            OnSelect: |-
+                =//Refresh(SET_INFO_TB);
+                Refresh(SET_INFO_TB_V2);
                 
+                ClearCollect(colSet,
+                    {
+                        sol_title : LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).SOL_NAME,
+                        sol_detail : LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).SOL_DETAIL,
+                        com_id : Text(LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).COMPANY_ID),
+                        com_name : LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).COMPANY_NAME,
+                        con_id : Text(LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).CONT_ID),
+                        con_name : LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).CONT_NAME,
+                        cnt_div : LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).CONT_VAL,
+                        job_div : LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).DIV_VALUE,
+                        free_min : Text(LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).FREE_MINUTE), // 추가 23.03.08
+                        paid_min : Text(LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).PAID_MINUTE) // 추가 23.03.08
+                    }
+                );
+                
+                /*
                 ClearCollect(colSet,
                     {
                         sol_title : LookUp(SET_INFO_TB, USER_EMAIL = gblUser).SOL_NAME,
@@ -104,13 +121,14 @@
                         paid_min : LookUp(SET_INFO_TB, USER_EMAIL = gblUser).PAID_MINUTE // 추가 23.03.08
                     }
                 );
+                */
             PaddingBottom: =5
             PaddingLeft: =5
             PaddingRight: =5
             PaddingTop: =5
             Tooltip: ="DB와 동기화해요"
             Width: =55
-            X: =520
+            X: =530
             ZIndex: =25
 
     lbl_free_min_show As label:

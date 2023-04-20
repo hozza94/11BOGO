@@ -1,10 +1,10 @@
 App As appinfo:
     BackEnabled: =false
-    OnStart: |
+    OnStart: |-
         =/*
             2022.12.21 Noah 제작
             11BOGO를 자동화 하기 위한 APPS 및 FLOW 제작 과정
-        
+            
         */
         
         
@@ -19,11 +19,31 @@ App As appinfo:
         Set(gblName, User().FullName);
         
         // 공지사항 1번만 출력하도록 변수 설정
-        Set(gblNotiFlag, LookUp(USER_TB, USER_EMAIL = gblUser).NOTI_FLAG);
-        Set(gblAlarmOnOff, LookUp(SET_INFO_TB, USER_EMAIL = gblUser).TODAY_RUN_YN);
+        //Set(gblNotiFlag, LookUp(USER_TB, USER_EMAIL = gblUser).NOTI_FLAG);
+        //Set(gblAlarmOnOff, LookUp(SET_INFO_TB, USER_EMAIL = gblUser).TODAY_RUN_YN);
+        
+        // DB 업데이트트
+        Set(gblNotiFlag, LookUp(USER_TB_V2, USER_EMAIL = gblUser).NOTI_FLAG);
+        Set(gblAlarmOnOff, LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).TODAY_RUN_YN);
         
         Set( new_click_flag, true );
         
+        // 23.04.20 SQL SERVER 연결로 인해 collection 변화
+        ClearCollect(colSet,
+            {
+                sol_title : LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).SOL_NAME,
+                sol_detail : LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).SOL_DETAIL,
+                com_id : Text(LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).COMPANY_ID),
+                com_name : LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).COMPANY_NAME,
+                con_id : Text(LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).CONT_ID),
+                con_name : LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).CONT_NAME,
+                cnt_div : LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).CONT_VAL,
+                job_div : LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).DIV_VALUE,
+                free_min : Text(LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).FREE_MINUTE), // 추가 23.03.08
+                paid_min : Text(LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).PAID_MINUTE) // 추가 23.03.08
+            }
+        );
+        /*
         // 현재 나의 세팅
         ClearCollect(colSet,
             {
@@ -39,6 +59,7 @@ App As appinfo:
                 paid_min : LookUp(SET_INFO_TB, USER_EMAIL = gblUser).PAID_MINUTE // 추가 23.03.08
             }
         );
+        */
     StartScreen: |
         =hidden
 
