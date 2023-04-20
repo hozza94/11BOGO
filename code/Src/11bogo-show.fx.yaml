@@ -27,6 +27,7 @@
         Height: =50
         Size: =16
         Text: ="* 업데이트 후 조회까지 2-3분정도 소요 될 수 있습니다. *"
+        Visible: =false
         Width: =560
         X: =40
         Y: =1070

@@ -26,7 +26,7 @@ App As appinfo:
         Set(gblNotiFlag, LookUp(USER_TB_V2, USER_EMAIL = gblUser).NOTI_FLAG);
         Set(gblAlarmOnOff, LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).TODAY_RUN_YN);
         
-        Set( new_click_flag, true );
+        Set( new_click_flag, false );
         
         // 23.04.20 SQL SERVER 연결로 인해 collection 변화
         ClearCollect(colSet,
