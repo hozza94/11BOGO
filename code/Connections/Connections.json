@@ -20,6 +20,9 @@
           },
           "USER_TB_V2": {
             "tableName": "[dbo].[USER_TB_V2]"
+          },
+          "VACA_TB_V2": {
+            "tableName": "[dbo].[VACA_TB_V2]"
           }
         }
       }
@@ -27,11 +30,13 @@
     "dataSources": [
       "POEM_TB_V2",
       "SET_INFO_TB_V2",
-      "USER_TB_V2"
+      "USER_TB_V2",
+      "VACA_TB_V2"
     ],
     "dependencies": {},
     "dependents": [
-      "d4bddd53-3800-46db-a253-18520c8b6c8c"
+      "d4bddd53-3800-46db-a253-18520c8b6c8c",
+      "3d131fd6-4a25-4909-811b-520e37a463a9"
     ],
     "endpoints": [
       "192.168.0.9,BOGO"
@@ -54,6 +59,54 @@
     "dependencies": {},
     "dependents": [],
     "id": "1c5ed3bd-8a62-4003-84ac-901f159e79e0"
+  },
+  "3d131fd6-4a25-4909-811b-520e37a463a9": {
+    "connectionRef": {
+      "displayName": "Logic flows",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1615/1.0.1615.3163/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "08780b72-06f8-47a6-affa-e5d34bdf79ae": {
+          "value": "shared_sql"
+        },
+        "9455fd2f-4036-4046-8507-cee2f4cc3298": {
+          "value": "shared_teams"
+        },
+        "d54cd8e4-79ec-446e-870f-23696269c2e0": {
+          "value": "shared_excelonlinebusiness"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "d392e785-cd35-49ff-8152-cff5c883f8b7"
+        }
+      },
+      "parameterHintsV2": {
+        "shared_excelonlinebusiness": {
+          "value": "d54cd8e4-79ec-446e-870f-23696269c2e0"
+        },
+        "shared_sql": {
+          "value": "08780b72-06f8-47a6-affa-e5d34bdf79ae"
+        },
+        "shared_teams": {
+          "value": "9455fd2f-4036-4046-8507-cee2f4cc3298"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "d392e785-cd35-49ff-8152-cff5c883f8b7"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "11BOGO_SET_VACAVer.2(SQLSERVER)"
+    ],
+    "dependencies": {
+      "shared_excelonlinebusiness": "d54cd8e4-79ec-446e-870f-23696269c2e0",
+      "shared_sql": "08780b72-06f8-47a6-affa-e5d34bdf79ae",
+      "shared_teams": "9455fd2f-4036-4046-8507-cee2f4cc3298"
+    },
+    "dependents": [],
+    "id": "3d131fd6-4a25-4909-811b-520e37a463a9"
   },
   "8689bdf4-fb4b-493d-bb73-d45c5cd69a8c": {
     "connectionRef": {
@@ -112,7 +165,8 @@
     "dependents": [
       "f8c56581-800a-4cfc-8ada-fea7bf137d46",
       "8689bdf4-fb4b-493d-bb73-d45c5cd69a8c",
-      "d4bddd53-3800-46db-a253-18520c8b6c8c"
+      "d4bddd53-3800-46db-a253-18520c8b6c8c",
+      "3d131fd6-4a25-4909-811b-520e37a463a9"
     ],
     "id": "9455fd2f-4036-4046-8507-cee2f4cc3298"
   },
@@ -234,7 +288,8 @@
     "dependents": [
       "f8c56581-800a-4cfc-8ada-fea7bf137d46",
       "8689bdf4-fb4b-493d-bb73-d45c5cd69a8c",
-      "d4bddd53-3800-46db-a253-18520c8b6c8c"
+      "d4bddd53-3800-46db-a253-18520c8b6c8c",
+      "3d131fd6-4a25-4909-811b-520e37a463a9"
     ],
     "id": "d54cd8e4-79ec-446e-870f-23696269c2e0"
   },

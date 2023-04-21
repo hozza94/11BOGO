@@ -4,8 +4,8 @@
         =If(
             gblNotiFlag = "N",
             // 업데이트 공지
-            Notify("ver 0.8 DB 업데이트!
-            이제 SQL SERVER를 연결해서 훨씬 업데이트가 빨라졌어요!'^'", NotificationType.Information, 3000);
+            Notify("ver 0.82 DB 업데이트!
+            이제 휴가 화면도 업데이트가 빨라졌어요!'^'", NotificationType.Information, 3000);
             Set(gblNotiFlag, "Y");
             //Patch(USER_TB, First(Filter(USER_TB, USER_EMAIL = gblUser)),{NOTI_FLAG: "Y"});
             Patch(USER_TB_V2, First(Filter(USER_TB_V2, USER_EMAIL = gblUser)),{NOTI_FLAG: "Y"});
@@ -30,8 +30,13 @@
             =//Notify("휴가기간 추가 기능은 현재 개발중!! '^'", NotificationType.Information, 2000);
             Set( new_click_flag, false );
             
+            /*
+                해당 화면 변경 사항
+                VACA_TB -> VACA_TB_V2
+                colVacaList -> colVacaListv2
+            */
             
-            Refresh(VACA_TB);
+            Refresh(VACA_TB_V2);
             Navigate('11bogo-vaca');
         Tooltip: ="휴가를 입력해요"
         Width: =60
@@ -88,7 +93,7 @@
         Color: =RGBA(255, 255, 255, 1)
         Height: =38
         Size: =12
-        Text: ="DEAR LHCN / version 0.81 Copyright 2023. 945"
+        Text: ="DEAR LHCN / version 0.82 Copyright 2023. 945"
         Tooltip: ="LHCN에게 바칩니다."
         Width: =640
         Y: =1098

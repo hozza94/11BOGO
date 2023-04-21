@@ -19,8 +19,8 @@
         });
         
         
-        ClearCollect( colVacaList, 
-            Filter(VACA_TB, USER_EMAIL = gblUser)
+        ClearCollect( colVacaListv2, 
+            Filter(VACA_TB_V2, USER_EMAIL = gblUser)
         );
             
         // 추가 noah
@@ -125,30 +125,22 @@
                 ) > 0 && !icn_Subcircle.Visible && lbl_day.Visible*/
                 Or(CountRows(
                     Filter(
-                        colVacaList,
+                        colVacaListv2,
                         VACA_END_DATE = DateAdd(
-                                DateAdd(
                                 _firstDayInView,
                                 ThisItem.Value,
                                 TimeUnit.Days
-                                ),
-                                -TimeZoneOffset(),
-                                TimeUnit.Minutes
                         )
                         
                     )
                 ) > 0, // 끝나는 날
                 CountRows(
                     Filter(
-                        colVacaList,
+                        colVacaListv2,
                         VACA_START_DATE = DateAdd(
-                                DateAdd(
                                 _firstDayInView,
                                 ThisItem.Value,
                                 TimeUnit.Days
-                                ),
-                                -TimeZoneOffset(),
-                                TimeUnit.Minutes
                         )
                         
                     )
@@ -337,7 +329,7 @@
         Height: =55
         Icon: =Icon.Reload
         OnSelect: |-
-            =Refresh(VACA_TB);
+            =Refresh(VACA_TB_V2);
             UpdateContext({
                 btn_Click_flag : true
             });
@@ -356,8 +348,8 @@
                 FLAG: ""
             });
             
-            ClearCollect( colVacaList, 
-                Filter(VACA_TB, USER_EMAIL = gblUser)
+            ClearCollect( colVacaListv2, 
+                Filter(VACA_TB_V2, USER_EMAIL = gblUser)
             );
             
             ClearCollect( colVaca, 
@@ -441,16 +433,14 @@
             
             
             If(
-                IsBlank(LookUp(colVacaList, VACA_START_DATE = DateAdd(
-                            _dateSelected,
-                            -TimeZoneOffset(),
-                            TimeUnit.Minutes
-                    ))),
+                IsBlank(LookUp(colVacaListv2, VACA_START_DATE = _dateSelected))
+                ,
                 If(
-                    '11BOGO_SET_VACA'.Run(JSON(colVaca,JSONFormat.IgnoreUnsupportedTypes), FLAG).status = "success",
-                    Refresh(VACA_TB);
-                    ClearCollect( colVacaList, 
-                        Filter(VACA_TB, USER_EMAIL = gblUser)
+                    //'11BOGO_SET_VACA'.Run(JSON(colVaca,JSONFormat.IgnoreUnsupportedTypes), FLAG).status = "success",
+                    '11BOGO_SET_VACAVer.2(SQLSERVER)'.Run(JSON(colVaca,JSONFormat.IgnoreUnsupportedTypes), FLAG).status = "success",
+                    Refresh(VACA_TB_V2);
+                    ClearCollect( colVacaListv2, 
+                        Filter(VACA_TB_V2, USER_EMAIL = gblUser)
                     );
                     Notify("휴가가 저장되었습니다", NotificationType.Success, 2000);,
                     Notify("저장에 실패했습니다. 관리자에게 문의해주세요.", NotificationType.Success, 2000)
@@ -492,17 +482,15 @@
             
             
             If(
-                Not IsBlank(LookUp(colVacaList, VACA_START_DATE = DateAdd(
-                            _dateSelected,
-                            -TimeZoneOffset(),
-                            TimeUnit.Minutes
-                    ))),
+                Not IsBlank(LookUp(colVacaListv2, VACA_START_DATE = _dateSelected))
+                ,
             
                 If(
-                    '11BOGO_SET_VACA'.Run(JSON(colVaca,JSONFormat.IgnoreUnsupportedTypes), FLAG).status = "success",
-                    Refresh(VACA_TB);
-                    ClearCollect( colVacaList, 
-                        Filter(VACA_TB, USER_EMAIL = gblUser)
+                    //'11BOGO_SET_VACA'.Run(JSON(colVaca,JSONFormat.IgnoreUnsupportedTypes), FLAG).status = "success",
+                    '11BOGO_SET_VACAVer.2(SQLSERVER)'.Run(JSON(colVaca,JSONFormat.IgnoreUnsupportedTypes), FLAG).status = "success",
+                    Refresh(VACA_TB_V2);
+                    ClearCollect( colVacaListv2, 
+                        Filter(VACA_TB_V2, USER_EMAIL = gblUser)
                     );
                     Notify("휴가가 삭제되었습니다", NotificationType.Success, 2000);,
                     Notify("삭제에 실패했습니다. 관리자에게 문의해주세요.", NotificationType.Success, 2000)
@@ -532,12 +520,12 @@
             =/*Shows events only on selected date*/
             //SortByColumns(Filter(MyCalendarEvents, Text(Start, DateTimeFormat.ShortDate) = Text(_dateSelected, DateTimeFormat.ShortDate)), "Start")
             If(
-                IsEmpty(Filter(colVacaList, VACA_START_DATE <= _lastDayOfMonth And VACA_START_DATE >= _firstDayOfMonth )),
+                IsEmpty(Filter(colVacaListv2, VACA_START_DATE <= _lastDayOfMonth And VACA_START_DATE >= _firstDayOfMonth )),
                 Table({
                     REASON : "' ^ '",
                     VACA_START_DATE : Now()
                 }),
-                SortByColumns(Filter(colVacaList, VACA_START_DATE <= _lastDayOfMonth And VACA_START_DATE >= _firstDayOfMonth ), "VACA_START_DATE")
+                SortByColumns(Filter(colVacaListv2, VACA_START_DATE <= _lastDayOfMonth And VACA_START_DATE >= _firstDayOfMonth ), "VACA_START_DATE")
             )
         Layout: =Layout.Vertical
         ShowScrollbar: =false
@@ -646,6 +634,7 @@
         Height: =50
         Size: =14
         Text: ="* 업데이트 후 조회까지 2-3분정도 소요 될 수 있습니다."
+        Visible: =false
         Width: =560
         X: =40
         Y: =70

@@ -1,0 +1,10 @@
+[
+  {
+    "ApiId": "/providers/microsoft.powerapps/apis/shared_logicflows",
+    "FlowNameId": "d392e785-cd35-49ff-8152-cff5c883f8b7",
+    "Name": "11BOGO_SET_VACAVer.2(SQLSERVER)",
+    "ServiceKind": "ConnectedWadl",
+    "Type": "ServiceInfo",
+    "WorkflowEntityId": null
+  }
+]
