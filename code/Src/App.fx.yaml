@@ -3,7 +3,9 @@ App As appinfo:
     OnStart: |-
         =/*
             2022.12.21 Noah 제작
+            DEAR LHCN
             11BOGO를 자동화 하기 위한 APPS 및 FLOW 제작 과정
+            
             
         */
         
@@ -22,7 +24,7 @@ App As appinfo:
         //Set(gblNotiFlag, LookUp(USER_TB, USER_EMAIL = gblUser).NOTI_FLAG);
         //Set(gblAlarmOnOff, LookUp(SET_INFO_TB, USER_EMAIL = gblUser).TODAY_RUN_YN);
         
-        // DB 업데이트트
+        // DB 업데이트
         Set(gblNotiFlag, LookUp(USER_TB_V2, USER_EMAIL = gblUser).NOTI_FLAG);
         Set(gblAlarmOnOff, LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).TODAY_RUN_YN);
         
