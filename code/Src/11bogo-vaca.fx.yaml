@@ -65,6 +65,7 @@
         PaddingLeft: =5
         PaddingRight: =5
         PaddingTop: =5
+        Tooltip: ="홈으로 돌아가기"
         Width: =55
         ZIndex: =3
 
@@ -274,7 +275,7 @@
         PaddingRight: =10
         PaddingTop: =10
         TabIndex: =0
-        Tooltip: ="이전 달 보기"
+        Tooltip: ="이전 달로 이동"
         Visible: =_calendarVisible
         Width: =91
         Y: =lbl_Month_Select.Y
@@ -311,7 +312,7 @@
         PaddingRight: =10
         PaddingTop: =10
         TabIndex: =0
-        Tooltip: ="다음 달 보기"
+        Tooltip: ="다음 달로 이동"
         Visible: =_calendarVisible
         Width: =91
         X: =Parent.Width - Self.Width
@@ -370,7 +371,7 @@
         PaddingLeft: =5
         PaddingRight: =5
         PaddingTop: =5
-        Tooltip: ="새로고침해요요"
+        Tooltip: ="새로고침해요"
         Width: =55
         X: =585
         ZIndex: =11
@@ -405,7 +406,7 @@
                 FLAG: ""
             });
         TabIndex: =0
-        Tooltip: ="선택한 날짜를 오늘로 다시 설정"
+        Tooltip: ="오늘로 이동"
         Visible: =_calendarVisible
         Width: =60
         X: =415
@@ -563,7 +564,8 @@
             Text: |-
                 =If(
                     ThisItem.REASON = "' ^ '",
-                    "다음달엔 꼭 쉴거야..",
+                    //"다음달엔 꼭 쉴거야..",
+                    "내일 휴가 쓸까?",
                     Text(ThisItem.VACA_START_DATE, "yyyy-mm-dd")
                 )
             Width: =200
