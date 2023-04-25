@@ -416,6 +416,14 @@
         Icon: =Icon.Undo
         OnSelect: |-
             =// 작성 내용 리셋
+            
+            UpdateContext({
+                locCmpId_modify: Value(First(colSet).com_id),
+                locCmpName_modify: First(colSet).com_name,
+                locCntId_modify: Value(First(colSet).con_id),
+                locCntName_modify: First(colSet).con_name
+            });
+            
             Reset(lb_search_company_modify);
             Reset(lb_search_contract_modify);
             Reset(txt_sol_detail_write);
@@ -424,6 +432,7 @@
             Reset(cmb_job_modify);
             Reset(txt_free_min_modi);
             Reset(txt_paid_min_modi);
+            
             //Clear(colSendSet);
             Clear(colSendSetv2);
             
