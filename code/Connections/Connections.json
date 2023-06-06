@@ -10,6 +10,13 @@
       "sharedConnectionId": "/providers/microsoft.powerapps/apis/shared_sql/connections/shared-sql-8853c412-5e2c-4eb7-bdc2-390ae36aa01d"
     },
     "datasets": {
+      "192.168.0.14,BOGO": {
+        "dataSources": {
+          "USER_TB_V2": {
+            "tableName": "[dbo].[USER_TB_V2]"
+          }
+        }
+      },
       "192.168.0.9,BOGO": {
         "dataSources": {
           "POEM_TB_V2": {
@@ -17,9 +24,6 @@
           },
           "SET_INFO_TB_V2": {
             "tableName": "[dbo].[SET_INFO_TB_V2]"
-          },
-          "USER_TB_V2": {
-            "tableName": "[dbo].[USER_TB_V2]"
           },
           "VACA_TB_V2": {
             "tableName": "[dbo].[VACA_TB_V2]"
@@ -30,8 +34,8 @@
     "dataSources": [
       "POEM_TB_V2",
       "SET_INFO_TB_V2",
-      "USER_TB_V2",
-      "VACA_TB_V2"
+      "VACA_TB_V2",
+      "USER_TB_V2"
     ],
     "dependencies": {},
     "dependents": [
