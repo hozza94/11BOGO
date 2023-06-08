@@ -1,0 +1,8 @@
+[
+  {
+    "ApiId": "/providers/microsoft.powerapps/apis/shared_test-5f2ae2ff327af3b741-5f7ca2a10d3cbd1575",
+    "Name": "BOGO_GET_USER_TB",
+    "ServiceKind": "ConnectedWadl",
+    "Type": "ServiceInfo"
+  }
+]

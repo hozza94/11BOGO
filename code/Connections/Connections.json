@@ -43,6 +43,7 @@
       "3d131fd6-4a25-4909-811b-520e37a463a9"
     ],
     "endpoints": [
+      "192.168.0.14,BOGO",
       "192.168.0.9,BOGO"
     ],
     "id": "08780b72-06f8-47a6-affa-e5d34bdf79ae"
@@ -111,6 +112,20 @@
     },
     "dependents": [],
     "id": "3d131fd6-4a25-4909-811b-520e37a463a9"
+  },
+  "5d6e7efa-1f17-4d28-b2ec-519c7c168618": {
+    "connectionRef": {
+      "displayName": "test",
+      "iconUri": "https://az787822.vo.msecnd.net/defaulticons/api-dedicated.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_test-5f2ae2ff327af3b741-5f7ca2a10d3cbd1575"
+    },
+    "datasets": {},
+    "dataSources": [
+      "BOGO_GET_USER_TB"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "5d6e7efa-1f17-4d28-b2ec-519c7c168618"
   },
   "8689bdf4-fb4b-493d-bb73-d45c5cd69a8c": {
     "connectionRef": {
