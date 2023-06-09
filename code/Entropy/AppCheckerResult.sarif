@@ -5333,36 +5333,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "App.USER_TB_V2"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.USER_TB_V2",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "USER_TB_V2",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-NotOfflineConnectors",
-          "ruleIndex": 9
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "App.SET_INFO_TB_V2"
                 }
               ],
@@ -5464,36 +5434,6 @@
               },
               "properties": {
                 "member": "SET_INFO_TB_V3",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-NotOfflineConnectors",
-          "ruleIndex": 9
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.11BOGO_SET_INFOVer.2(SQLSERVER)"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.11BOGO_SET_INFOVer.2(SQLSERVER)",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "11BOGO_SET_INFOVer.2(SQLSERVER)",
                 "module": "App",
                 "type": "App"
               }

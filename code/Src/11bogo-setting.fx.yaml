@@ -207,8 +207,12 @@
                     ),
                     
                     // SQL SEVER ver
-                    user_no : LookUp(USER_TB_V2, USER_EMAIL = gblUser).USER_NO,
-                    info_key : LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).SET_INFO_KEY
+                    //user_no : LookUp(USER_TB_V2, USER_EMAIL = gblUser).USER_NO,
+                    //info_key : LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).SET_INFO_KEY
+                    
+                    // AZURE SQL SERVER 0609
+                    user_no : LookUp(USER_TB_V3, USER_EMAIL = gblUser).USER_NO,
+                    info_key : LookUp(SET_INFO_TB_V3, USER_EMAIL = gblUser).SET_INFO_KEY
                 }
             );
             
@@ -228,7 +232,8 @@
                 Notify("업무 구분을 선택해주세요", NotificationType.Warning, 2500),
             
                 If(
-                    '11BOGO_SET_INFOVer.2(SQLSERVER)'.Run(JSON(colSendSetv2,JSONFormat.IgnoreUnsupportedTypes)).status = "success",
+                    //'11BOGO_SET_INFOVer.2(SQLSERVER)'.Run(JSON(colSendSetv2,JSONFormat.IgnoreUnsupportedTypes)).status = "success",
+                    '11BOGO_SET_INFOVer.3(AZURESQLSERVER)'.Run(JSON(colSendSetv2,JSONFormat.IgnoreUnsupportedTypes)).status = "success",
                     Notify("저장 완료", NotificationType.Success, 2500);
                     Refresh(SET_INFO_TB_V2);
                     // 저장 후 리셋
@@ -254,6 +259,7 @@
                     });
             
                     // 현재 나의 세팅
+                    /*
                     ClearCollect(colSet,
                         {
                             sol_title : LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).SOL_NAME,
@@ -265,7 +271,22 @@
                             cnt_div : LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).CONT_VAL,
                             job_div : LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).DIV_VALUE,
                             free_min : Text(LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).FREE_MINUTE), // 추가 23.03.08
-                            paid_min : Text(LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).PAID_MINUTE) // 추가 23.03.08*/
+                            paid_min : Text(LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).PAID_MINUTE) // 추가 23.03.08
+                        }
+                    );*/
+                    // 23.06.09 AZURE SQL SERVER 연결
+                    ClearCollect(colSet,
+                        {
+                            sol_title : LookUp(SET_INFO_TB_V3, USER_EMAIL = gblUser).SOL_NAME,
+                            sol_detail : LookUp(SET_INFO_TB_V3, USER_EMAIL = gblUser).SOL_DETAIL,
+                            com_id : Text(LookUp(SET_INFO_TB_V3, USER_EMAIL = gblUser).COMPANY_ID),
+                            com_name : LookUp(SET_INFO_TB_V3, USER_EMAIL = gblUser).COMPANY_NAME,
+                            con_id : Text(LookUp(SET_INFO_TB_V3, USER_EMAIL = gblUser).CONT_ID),
+                            con_name : LookUp(SET_INFO_TB_V3, USER_EMAIL = gblUser).CONT_NAME,
+                            cnt_div : LookUp(SET_INFO_TB_V3, USER_EMAIL = gblUser).CONT_VAL,
+                            job_div : LookUp(SET_INFO_TB_V3, USER_EMAIL = gblUser).DIV_VALUE,
+                            free_min : Text(LookUp(SET_INFO_TB_V3, USER_EMAIL = gblUser).FREE_MINUTE),
+                            paid_min : Text(LookUp(SET_INFO_TB_V3, USER_EMAIL = gblUser).PAID_MINUTE) 
                         }
                     );
                     Clear(colSendSetv2);,
@@ -273,7 +294,8 @@
                 );
             );
             
-            Refresh(SET_INFO_TB_V2);
+            //Refresh(SET_INFO_TB_V2);
+            Refresh(SET_INFO_TB_V3);
             
             /*
             
@@ -794,8 +816,24 @@
             Height: =55
             Icon: =Icon.Post
             OnSelect: |-
-                =Refresh(SET_INFO_TB_V2);
+                =Refresh(SET_INFO_TB_V3);
                 
+                // 23.06.09 AZURE SQL SERVER 연결
+                ClearCollect(colSet,
+                    {
+                        sol_title : LookUp(SET_INFO_TB_V3, USER_EMAIL = gblUser).SOL_NAME,
+                        sol_detail : LookUp(SET_INFO_TB_V3, USER_EMAIL = gblUser).SOL_DETAIL,
+                        com_id : Text(LookUp(SET_INFO_TB_V3, USER_EMAIL = gblUser).COMPANY_ID),
+                        com_name : LookUp(SET_INFO_TB_V3, USER_EMAIL = gblUser).COMPANY_NAME,
+                        con_id : Text(LookUp(SET_INFO_TB_V3, USER_EMAIL = gblUser).CONT_ID),
+                        con_name : LookUp(SET_INFO_TB_V3, USER_EMAIL = gblUser).CONT_NAME,
+                        cnt_div : LookUp(SET_INFO_TB_V3, USER_EMAIL = gblUser).CONT_VAL,
+                        job_div : LookUp(SET_INFO_TB_V3, USER_EMAIL = gblUser).DIV_VALUE,
+                        free_min : Text(LookUp(SET_INFO_TB_V3, USER_EMAIL = gblUser).FREE_MINUTE),
+                        paid_min : Text(LookUp(SET_INFO_TB_V3, USER_EMAIL = gblUser).PAID_MINUTE) 
+                    }
+                );
+                /*
                 ClearCollect(colSet,
                     {
                         sol_title : LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).SOL_NAME,
@@ -810,7 +848,7 @@
                         paid_min : Text(LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).PAID_MINUTE) // 추가 23.03.08
                     }
                 );
-                
+                */
                 Navigate('11bogo-show');
                 
                 Reset(lb_search_company);
