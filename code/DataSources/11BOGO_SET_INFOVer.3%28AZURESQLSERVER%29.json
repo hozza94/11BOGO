@@ -1,0 +1,10 @@
+[
+  {
+    "ApiId": "/providers/microsoft.powerapps/apis/shared_logicflows",
+    "FlowNameId": "f17f5981-dcf1-424f-91c1-601ceb3dd637",
+    "Name": "11BOGO_SET_INFOVer.3(AZURESQLSERVER)",
+    "ServiceKind": "ConnectedWadl",
+    "Type": "ServiceInfo",
+    "WorkflowEntityId": null
+  }
+]

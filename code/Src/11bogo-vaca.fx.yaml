@@ -18,11 +18,15 @@
             FLAG: ""
         });
         
-        
+        /*
         ClearCollect( colVacaListv2, 
             Filter(VACA_TB_V2, USER_EMAIL = gblUser)
         );
-            
+        */
+        ClearCollect( colVacaListv2, 
+            Filter(VACA_TB_V3, USER_EMAIL = gblUser)
+        );
+        
         // 추가 noah
         ClearCollect( colVaca, 
             {
@@ -330,7 +334,7 @@
         Height: =55
         Icon: =Icon.Reload
         OnSelect: |-
-            =Refresh(VACA_TB_V2);
+            =Refresh(VACA_TB_V3);
             UpdateContext({
                 btn_Click_flag : true
             });
@@ -349,9 +353,15 @@
                 FLAG: ""
             });
             
+            /*
             ClearCollect( colVacaListv2, 
                 Filter(VACA_TB_V2, USER_EMAIL = gblUser)
             );
+            */
+            ClearCollect( colVacaListv2, 
+                Filter(VACA_TB_V3, USER_EMAIL = gblUser)
+            );
+            
             
             ClearCollect( colVaca, 
                 {
@@ -438,10 +448,11 @@
                 ,
                 If(
                     //'11BOGO_SET_VACA'.Run(JSON(colVaca,JSONFormat.IgnoreUnsupportedTypes), FLAG).status = "success",
-                    '11BOGO_SET_VACAVer.2(SQLSERVER)'.Run(JSON(colVaca,JSONFormat.IgnoreUnsupportedTypes), FLAG).status = "success",
-                    Refresh(VACA_TB_V2);
+                    //'11BOGO_SET_VACAVer.2(SQLSERVER)'.Run(JSON(colVaca,JSONFormat.IgnoreUnsupportedTypes), FLAG).status = "success",
+                    '11BOGO_SET_VACAVer.3(AZURESQLSERVER)'.Run(JSON(colVaca,JSONFormat.IgnoreUnsupportedTypes), FLAG).status = "success",
+                    Refresh(VACA_TB_V3);
                     ClearCollect( colVacaListv2, 
-                        Filter(VACA_TB_V2, USER_EMAIL = gblUser)
+                        Filter(VACA_TB_V3, USER_EMAIL = gblUser)
                     );
                     Notify("휴가가 저장되었습니다", NotificationType.Success, 2000);,
                     Notify("저장에 실패했습니다. 관리자에게 문의해주세요.", NotificationType.Success, 2000)
@@ -488,10 +499,12 @@
             
                 If(
                     //'11BOGO_SET_VACA'.Run(JSON(colVaca,JSONFormat.IgnoreUnsupportedTypes), FLAG).status = "success",
-                    '11BOGO_SET_VACAVer.2(SQLSERVER)'.Run(JSON(colVaca,JSONFormat.IgnoreUnsupportedTypes), FLAG).status = "success",
-                    Refresh(VACA_TB_V2);
+                    //'11BOGO_SET_VACAVer.2(SQLSERVER)'.Run(JSON(colVaca,JSONFormat.IgnoreUnsupportedTypes), FLAG).status = "success",
+                    '11BOGO_SET_VACAVer.3(AZURESQLSERVER)'.Run(JSON(colVaca,JSONFormat.IgnoreUnsupportedTypes), FLAG).status = "success",
+            
+                    Refresh(VACA_TB_V3);
                     ClearCollect( colVacaListv2, 
-                        Filter(VACA_TB_V2, USER_EMAIL = gblUser)
+                        Filter(VACA_TB_V3, USER_EMAIL = gblUser)
                     );
                     Notify("휴가가 삭제되었습니다", NotificationType.Success, 2000);,
                     Notify("삭제에 실패했습니다. 관리자에게 문의해주세요.", NotificationType.Success, 2000)

@@ -1,14 +1,16 @@
 "'11bogo-main' As screen":
     BackgroundImage: =bgi_resize
-    OnVisible: |-
+    OnVisible: |
         =If(
             gblNotiFlag = "N",
             // 업데이트 공지
-            Notify("ver 0.82 DB 업데이트!
-            이제 휴가 화면도 업데이트가 빨라졌어요!'^'", NotificationType.Information, 3000);
+            Notify("ver 0.9 Azure SQL SERVER로 DB 이전!
+            이제 서버가 꺼져있을 염려는 없어요! '^'", NotificationType.Information, 3000);
             Set(gblNotiFlag, "Y");
             //Patch(USER_TB, First(Filter(USER_TB, USER_EMAIL = gblUser)),{NOTI_FLAG: "Y"});
-            Patch(USER_TB_V2, First(Filter(USER_TB_V2, USER_EMAIL = gblUser)),{NOTI_FLAG: "Y"});
+            //Patch(USER_TB_V2, First(Filter(USER_TB_V2, USER_EMAIL = gblUser)),{NOTI_FLAG: "Y"});
+            // 23.06.09 AZURE SQL SERVER 연결
+            Patch(USER_TB_V3, First(Filter(USER_TB_V3, USER_EMAIL = gblUser)),{NOTI_FLAG: "Y"});
         );
 
     icn_write As icon.Settings:
@@ -36,7 +38,8 @@
                 colVacaList -> colVacaListv2
             */
             
-            Refresh(VACA_TB_V2);
+            //Refresh(VACA_TB_V2);
+            Refresh(VACA_TB_V3);
             Navigate('11bogo-vaca');
         Tooltip: ="휴가를 입력해요"
         Width: =60
@@ -63,7 +66,7 @@
                     paid_min : LookUp(SET_INFO_TB, USER_EMAIL = gblUser).PAID_MINUTE // 추가 23.03.08
                 }
             );*/
-            
+            /*
             // 23.04.20 SQL SERVER 연결로 인해 collection 변화
             ClearCollect(colSet,
                 {
@@ -78,8 +81,23 @@
                     free_min : Text(LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).FREE_MINUTE), // 추가 23.03.08
                     paid_min : Text(LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).PAID_MINUTE) // 추가 23.03.08
                 }
-            );
+            );*/
             
+            // 23.06.09 AZURE SQL SERVER 연결
+            ClearCollect(colSet,
+                {
+                    sol_title : LookUp(SET_INFO_TB_V3, USER_EMAIL = gblUser).SOL_NAME,
+                    sol_detail : LookUp(SET_INFO_TB_V3, USER_EMAIL = gblUser).SOL_DETAIL,
+                    com_id : Text(LookUp(SET_INFO_TB_V3, USER_EMAIL = gblUser).COMPANY_ID),
+                    com_name : LookUp(SET_INFO_TB_V3, USER_EMAIL = gblUser).COMPANY_NAME,
+                    con_id : Text(LookUp(SET_INFO_TB_V3, USER_EMAIL = gblUser).CONT_ID),
+                    con_name : LookUp(SET_INFO_TB_V3, USER_EMAIL = gblUser).CONT_NAME,
+                    cnt_div : LookUp(SET_INFO_TB_V3, USER_EMAIL = gblUser).CONT_VAL,
+                    job_div : LookUp(SET_INFO_TB_V3, USER_EMAIL = gblUser).DIV_VALUE,
+                    free_min : Text(LookUp(SET_INFO_TB_V3, USER_EMAIL = gblUser).FREE_MINUTE),
+                    paid_min : Text(LookUp(SET_INFO_TB_V3, USER_EMAIL = gblUser).PAID_MINUTE) 
+                }
+            );
             Navigate('11bogo-show')
             
         Tooltip: ="저장내용을 조회해요"
@@ -93,7 +111,7 @@
         Color: =RGBA(255, 255, 255, 1)
         Height: =38
         Size: =12
-        Text: ="DEAR LHCN / version 0.822 Copyright 2023. 945"
+        Text: ="DEAR LHCN / version 0.9 Copyright 2023. 945"
         Tooltip: ="LHCN에게 바칩니다."
         Width: =640
         Y: =1098
@@ -181,7 +199,7 @@
                     paid_min : LookUp(SET_INFO_TB, USER_EMAIL = gblUser).PAID_MINUTE // 추가 23.03.08
                 }
             );*/
-            
+            /*
             // 23.04.20 SQL SERVER 연결로 인해 collection 변화
             ClearCollect(colSet,
                 {
@@ -196,7 +214,24 @@
                     free_min : Text(LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).FREE_MINUTE), // 추가 23.03.08
                     paid_min : Text(LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).PAID_MINUTE) // 추가 23.03.08
                 }
+            );*/
+            
+            // 23.06.09 AZURE SQL SERVER 연결
+            ClearCollect(colSet,
+                {
+                    sol_title : LookUp(SET_INFO_TB_V3, USER_EMAIL = gblUser).SOL_NAME,
+                    sol_detail : LookUp(SET_INFO_TB_V3, USER_EMAIL = gblUser).SOL_DETAIL,
+                    com_id : Text(LookUp(SET_INFO_TB_V3, USER_EMAIL = gblUser).COMPANY_ID),
+                    com_name : LookUp(SET_INFO_TB_V3, USER_EMAIL = gblUser).COMPANY_NAME,
+                    con_id : Text(LookUp(SET_INFO_TB_V3, USER_EMAIL = gblUser).CONT_ID),
+                    con_name : LookUp(SET_INFO_TB_V3, USER_EMAIL = gblUser).CONT_NAME,
+                    cnt_div : LookUp(SET_INFO_TB_V3, USER_EMAIL = gblUser).CONT_VAL,
+                    job_div : LookUp(SET_INFO_TB_V3, USER_EMAIL = gblUser).DIV_VALUE,
+                    free_min : Text(LookUp(SET_INFO_TB_V3, USER_EMAIL = gblUser).FREE_MINUTE),
+                    paid_min : Text(LookUp(SET_INFO_TB_V3, USER_EMAIL = gblUser).PAID_MINUTE) 
+                }
             );
+            
             
             Navigate('11bogo-modify');
         Tooltip: ="보고 수정해요"
@@ -238,8 +273,9 @@
         Height: =60
         HoverColor: =RGBA(255, 255, 255, 0%)
         HoverFill: =RGBA(255, 255, 255, 0%)
-        OnSelect: |-
-            =If(
+        OnSelect: |
+            =/*
+            If(
                 gblAlarmOnOff = "Y",
                 Set(gblAlarmOnOff, "N");
                 Patch(SET_INFO_TB, LookUp(SET_INFO_TB, USER_EMAIL = gblUser), { TODAY_RUN_YN: "N"});
@@ -247,6 +283,19 @@
                 ,
                 Set(gblAlarmOnOff, "Y");
                 Patch(SET_INFO_TB, LookUp(SET_INFO_TB, USER_EMAIL = gblUser), { TODAY_RUN_YN: "Y"});
+                Notify("자동 입력 ON! '^'", NotificationType.Success, 2000);
+            )
+            */
+            
+            // AZURE SQL SERVER 사용용
+            If(
+                gblAlarmOnOff = "Y",
+                Set(gblAlarmOnOff, "N");
+                Patch(SET_INFO_TB_V3, LookUp(SET_INFO_TB_V3, USER_EMAIL = gblUser), { TODAY_RUN_YN: "N"});
+                Notify("자동 입력 OFF! '^'", NotificationType.Success, 2000);
+                ,
+                Set(gblAlarmOnOff, "Y");
+                Patch(SET_INFO_TB_V3, LookUp(SET_INFO_TB_V3, USER_EMAIL = gblUser), { TODAY_RUN_YN: "Y"});
                 Notify("자동 입력 ON! '^'", NotificationType.Success, 2000);
             )
         PaddingBottom: =0
