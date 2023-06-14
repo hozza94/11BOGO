@@ -235,7 +235,7 @@
                     //'11BOGO_SET_INFOVer.2(SQLSERVER)'.Run(JSON(colSendSetv2,JSONFormat.IgnoreUnsupportedTypes)).status = "success",
                     '11BOGO_SET_INFOVer.3(AZURESQLSERVER)'.Run(JSON(colSendSetv2,JSONFormat.IgnoreUnsupportedTypes)).status = "success",
                     Notify("저장 완료", NotificationType.Success, 2500);
-                    Refresh(SET_INFO_TB_V2);
+                    Refresh(SET_INFO_TB_V3);
                     // 저장 후 리셋
                     Reset(lb_search_company);
                     Reset(lb_search_contract);

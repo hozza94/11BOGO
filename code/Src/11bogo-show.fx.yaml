@@ -106,7 +106,7 @@
             Icon: =Icon.Sync
             OnSelect: |-
                 =//Refresh(SET_INFO_TB);
-                Refresh(SET_INFO_TB_V2);
+                Refresh(SET_INFO_TB_V3);
                 // 23.06.09 AZURE SQL SERVER 연결
                 ClearCollect(colSet,
                     {
