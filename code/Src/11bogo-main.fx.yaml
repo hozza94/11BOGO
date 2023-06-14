@@ -316,7 +316,7 @@
         FontWeight: =FontWeight.Lighter
         Height: =38
         Size: =12
-        Text: =Today()
+        Text: =Now()
         Width: =200
         Y: =1098
         ZIndex: =14
