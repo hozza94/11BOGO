@@ -9,34 +9,8 @@
       "isOnPremiseConnection": true,
       "sharedConnectionId": "/providers/microsoft.powerapps/apis/shared_sql/connections/shared-sql-8853c412-5e2c-4eb7-bdc2-390ae36aa01d"
     },
-    "datasets": {
-      "192.168.0.14,BOGO": {
-        "dataSources": {
-          "USER_TB_V2": {
-            "tableName": "[dbo].[USER_TB_V2]"
-          }
-        }
-      },
-      "192.168.0.9,BOGO": {
-        "dataSources": {
-          "POEM_TB_V2": {
-            "tableName": "[dbo].[POEM_TB_V2]"
-          },
-          "SET_INFO_TB_V2": {
-            "tableName": "[dbo].[SET_INFO_TB_V2]"
-          },
-          "VACA_TB_V2": {
-            "tableName": "[dbo].[VACA_TB_V2]"
-          }
-        }
-      }
-    },
-    "dataSources": [
-      "POEM_TB_V2",
-      "SET_INFO_TB_V2",
-      "VACA_TB_V2",
-      "USER_TB_V2"
-    ],
+    "datasets": {},
+    "dataSources": [],
     "dependencies": {},
     "dependents": [
       "d4bddd53-3800-46db-a253-18520c8b6c8c",
@@ -405,21 +379,8 @@
       "parameterHintsV2": {}
     },
     "datasets": {
-      "groups%252Fc0e4b0c7-2615-41e2-ad23-888c1bfa6425,b%2521LkcCPNZqs02VfqkIAsTKwhpq5jJmmF1OiFCbHEjTdseiWr5eU2bxRqHbVmESj-uW,0143YDEOKNXXJPS4NRRREZMORMDOCSC7HQ": {
-        "dataSources": {
-          "POEM_TB": {
-            "tableName": "{B96DA194-8F19-4422-A6CB-40CC8742017B}"
-          },
-          "VACA_TB": {
-            "tableName": "{FB8DDC22-1249-439E-9545-51929A817D42}"
-          }
-        }
-      },
       "sites%252Fmavenkr.sharepoint.com%252C3c02472e-6ad6-4db3-957e-a90802c4cac2%252C32e66a1a-9866-4e5d-8850-9b1c48d376c7,b%2521LkcCPNZqs02VfqkIAsTKwhpq5jJmmF1OiFCbHEjTdseiWr5eU2bxRqHbVmESj-uW,0143YDEOKNXXJPS4NRRREZMORMDOCSC7HQ": {
         "dataSources": {
-          "SET_INFO_TB": {
-            "tableName": "{BA3B41B4-4294-43FF-9D22-E1AE9CFB8380}"
-          },
           "USER_TB": {
             "tableName": "{EA66D97F-1039-4A7E-8AAD-771BD4374A20}"
           }
@@ -427,10 +388,7 @@
       }
     },
     "dataSources": [
-      "SET_INFO_TB",
-      "USER_TB",
-      "POEM_TB",
-      "VACA_TB"
+      "USER_TB"
     ],
     "dependencies": {},
     "dependents": [

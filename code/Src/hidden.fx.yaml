@@ -2,11 +2,11 @@ hidden As screen:
     BackgroundImage: =bgi_resize
     OnVisible: |-
         =UpdateContext({
-            poem_range : CountRows(POEM_TB)
+            poem_range : CountRows(POEM_TB_V3)
         });
         
         UpdateContext({
-            html_poem : LookUp(POEM_TB, POEM_NO = Text(RandBetween(1, poem_range))).POEM_CONTENT
+            html_poem : LookUp(POEM_TB_V3, POEM_NO = Text(RandBetween(1, poem_range))).POEM_CONTENT
         });
 
     timer As timer:
