@@ -1,4 +1,4 @@
-"'11bogo-poem' As screen":
+"'11bogo-add' As screen":
     BackgroundImage: =bgi_resize
     OnHidden: |-
         =Clear(colSendSetv2);
@@ -14,7 +14,7 @@
         });
     OnVisible: =
 
-    btn_title_poem As button:
+    btn_title_poem_1 As button:
         BorderThickness: =0
         DisplayMode: =DisplayMode.View
         Fill: =RGBA(49, 59, 77, 1)
@@ -27,12 +27,12 @@
         RadiusTopRight: =0
         Size: =22
         Text: |-
-            ="11BOGO - POEM
+            ="11BOGO - Member
             "
         Width: =640
         ZIndex: =1
 
-    shpbgSelect_poem As rectangle:
+    shpbgSelect_poem_1 As rectangle:
         Fill: =RGBA(0, 0, 0, 0%)
         Height: =1076
         OnSelect: |
@@ -50,7 +50,7 @@
         Y: =55
         ZIndex: =2
 
-    txt_poem_content As text:
+    txt_poem_content_1 As text:
         BorderColor: =RGBA(255, 255, 255, 1)
         Color: =RGBA(255, 255, 255, 1)
         Default: |-
@@ -58,7 +58,7 @@
             Substitute(
                 LookUp(
                     colPoem,
-                    POEM_TITLE = First(cmb_poem_title.SelectedItems).POEM_TITLE
+                    POEM_TITLE = First(cmb_poem_title_1.SelectedItems).POEM_TITLE
                 ).POEM_CONTENT,
                 Char(34) & "<center><pre>",
                 ""
@@ -75,10 +75,10 @@
         Y: =630
         ZIndex: =3
 
-    txt_poem_title As text:
+    txt_poem_title_1 As text:
         BorderColor: =RGBA(255, 255, 255, 1)
         Color: =RGBA(255, 255, 255, 1)
-        Default: =LookUp(colPoem, POEM_TITLE = First(cmb_poem_title.SelectedItems).POEM_TITLE).POEM_TITLE
+        Default: =LookUp(colPoem, POEM_TITLE = First(cmb_poem_title_1.SelectedItems).POEM_TITLE).POEM_TITLE
         Fill: =RGBA(0, 0, 0, 0)
         Height: =70
         HintText: =//"solution title"
@@ -90,7 +90,7 @@
         Y: =310
         ZIndex: =4
 
-    icn_poem_back As icon.BackArrow:
+    icn_poem_back_1 As icon.BackArrow:
         Color: =RGBA(255, 255, 255, 1)
         Height: =55
         Icon: =Icon.BackArrow
@@ -103,10 +103,10 @@
         Width: =55
         ZIndex: =5
 
-    txt_poem_poet As text:
+    txt_poem_poet_1 As text:
         BorderColor: =RGBA(255, 255, 255, 1)
         Color: =RGBA(255, 255, 255, 1)
-        Default: =LookUp(colPoem, POEM_TITLE = First(cmb_poem_title.SelectedItems).POEM_TITLE).POEM_WRITER
+        Default: =LookUp(colPoem, POEM_TITLE = First(cmb_poem_title_1.SelectedItems).POEM_TITLE).POEM_WRITER
         Fill: =RGBA(0, 0, 0, 0)
         Height: =70
         HintText: =//"solution title"
@@ -118,7 +118,7 @@
         Y: =470
         ZIndex: =6
 
-    lbl_poem_title As label:
+    lbl_poem_title_1 As label:
         Color: =RGBA(255, 255, 255, 1)
         FontWeight: =FontWeight.Bold
         Height: =50
@@ -129,7 +129,7 @@
         Y: =250
         ZIndex: =7
 
-    lbl_poem_poet As label:
+    lbl_poem_poet_1 As label:
         Color: =RGBA(255, 255, 255, 1)
         FontWeight: =FontWeight.Bold
         Height: =50
@@ -140,7 +140,7 @@
         Y: =410
         ZIndex: =8
 
-    lbl_poem_content As label:
+    lbl_poem_content_1 As label:
         Color: =RGBA(255, 255, 255, 1)
         FontWeight: =FontWeight.Bold
         Height: =50
@@ -151,7 +151,7 @@
         Y: =570
         ZIndex: =9
 
-    icn_save_1 As icon.Save:
+    icn_save_2 As icon.Save:
         Color: =RGBA(255, 255, 255, 1)
         DisabledColor: =RGBA(128, 128, 128, 1)
         DisplayMode: |-
@@ -167,9 +167,9 @@
             ClearCollect(
                 colEditPoem,
                 {
-                    poem_title : txt_poem_title.Text,
-                    poem_writer : txt_poem_poet.Text,
-                    poem_content : txt_poem_content.Text
+                    poem_title : txt_poem_title_1.Text,
+                    poem_writer : txt_poem_poet_1.Text,
+                    poem_content : txt_poem_content_1.Text
                 }
             );
             
@@ -262,19 +262,19 @@
         X: =475
         ZIndex: =10
 
-    lbl_notice_2 As label:
+    lbl_notice_3 As label:
         Align: =Align.Center
         Color: =RGBA(255, 255, 255, 1)
         FontWeight: =FontWeight.Bold
         Height: =50
         Size: =14
-        Text: ="앱 시작 화면에 나타날 시를 추가, 변경 할 수 있어요! '^'"
+        Text: ="٩ʕ•ﻌ•*ʔو Who is the next member? '^'"
         Width: =560
         X: =40
         Y: =70
         ZIndex: =11
 
-    cmb_poem_title As combobox:
+    cmb_poem_title_1 As combobox:
         BorderColor: =RGBA(255, 255, 255, 1)
         ChevronBackground: =RGBA(0, 0, 0, 0)
         ChevronHoverBackground: =ColorFade(RGBA(230, 239, 239, 1), 50%)
@@ -289,7 +289,7 @@
         Items: =colPoem
         OnChange: |-
             =UpdateContext({
-                locCntDiv: cmb_poem_title.SelectedItems
+                locCntDiv: cmb_poem_title_1.SelectedItems
             });
         OnSelect: |-
             =/*
@@ -316,26 +316,4 @@
         X: =39
         Y: =152
         ZIndex: =12
-
-    Button1 As button:
-        Height: =70
-        OnSelect: |-
-            =ClearCollect(
-                colEditPoem,
-                {
-                    poem_title : txt_poem_title.Text,
-                    poem_writer : txt_poem_poet.Text,
-                    poem_content : txt_poem_content.Text
-                }
-            );
-            
-            UpdateContext({
-                TTTT : LookUp(colPoem, POEM_TITLE = First(cmb_poem_title.SelectedItems).POEM_TITLE).POEM_CONTENT
-            })
-        Size: =24
-        Text: ="버튼"
-        Width: =280
-        X: =73
-        Y: =50
-        ZIndex: =13
 
