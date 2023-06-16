@@ -325,7 +325,12 @@
         Color: =RGBA(255, 255, 255, 1)
         Height: =60
         Icon: =Icon.Heart
-        OnSelect: =Navigate('11bogo-poem');
+        OnSelect: |-
+            =ClearCollect(
+                colPoem, POEM_TB_V3);
+            
+            
+            Navigate('11bogo-poem');
         Tooltip: ="시를 수정해요"
         Width: =60
         X: =290

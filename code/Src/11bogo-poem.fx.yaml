@@ -53,7 +53,7 @@
     txt_poem_content As text:
         BorderColor: =RGBA(255, 255, 255, 1)
         Color: =RGBA(255, 255, 255, 1)
-        Default: =""
+        Default: =LookUp(colPoem, POEM_TITLE = First(cmb_poem_title.SelectedItems).POEM_TITLE).POEM_CONTENT
         Fill: =RGBA(0, 0, 0, 0)
         Height: =456
         HintText: =//"solution detail"
@@ -69,7 +69,7 @@
     txt_poem_title As text:
         BorderColor: =RGBA(255, 255, 255, 1)
         Color: =RGBA(255, 255, 255, 1)
-        Default: =
+        Default: =LookUp(colPoem, POEM_TITLE = First(cmb_poem_title.SelectedItems).POEM_TITLE).POEM_TITLE
         Fill: =RGBA(0, 0, 0, 0)
         Height: =70
         HintText: =//"solution title"
@@ -83,7 +83,6 @@
 
     icn_poem_back As icon.BackArrow:
         Color: =RGBA(255, 255, 255, 1)
-        DisplayMode: =DisplayMode.View
         Height: =55
         Icon: =Icon.BackArrow
         OnSelect: =Navigate('11bogo-main');
@@ -98,7 +97,7 @@
     txt_poem_poet As text:
         BorderColor: =RGBA(255, 255, 255, 1)
         Color: =RGBA(255, 255, 255, 1)
-        Default: =
+        Default: =LookUp(colPoem, POEM_TITLE = First(cmb_poem_title.SelectedItems).POEM_TITLE).POEM_WRITER
         Fill: =RGBA(0, 0, 0, 0)
         Height: =70
         HintText: =//"solution title"
@@ -290,22 +289,22 @@
         Y: =70
         ZIndex: =11
 
-    cmb_cnt_1 As combobox:
+    cmb_poem_title As combobox:
         BorderColor: =RGBA(255, 255, 255, 1)
         ChevronBackground: =RGBA(0, 0, 0, 0)
         ChevronHoverBackground: =ColorFade(RGBA(230, 239, 239, 1), 50%)
         Color: =RGBA(255, 255, 255, 1)
-        DisplayFields: =["value"]
+        DisplayFields: =["POEM_TITLE"]
         Fill: =RGBA(0, 0, 0, 0)
         Height: =60
         HoverBorderColor: =//ColorFade(Self.BorderColor, 15%)
         HoverFill: =ColorFade(RGBA(230, 239, 239, 1), 50%)
         InputTextPlaceholder: ="계약 구분"
         IsSearchable: =false
-        Items: =cnt_value_tb
+        Items: =colPoem
         OnChange: |-
             =UpdateContext({
-                locCntDiv: cmb_cnt_1.SelectedItems
+                locCntDiv: cmb_poem_title.SelectedItems
             });
         OnSelect: |-
             =/*
@@ -323,7 +322,7 @@
         PaddingBottom: =10
         PressedFill: =ColorFade(RGBA(230, 239, 239, 1), 50%)
         Reset: =true
-        SearchFields: =["value"]
+        SearchFields: =["POEM_TITLE"]
         SearchItems: =[]
         SelectionFill: =//ColorFade(RGBA(230, 239, 239, 1), 0%)
         SelectMultiple: =false
