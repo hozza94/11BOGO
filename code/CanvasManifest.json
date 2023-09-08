@@ -1,7 +1,7 @@
 {
   "FormatVersion": "0.24",
   "Header": {
-    "DocVersion": "1.332",
+    "DocVersion": "1.334",
     "MinVersionToLoad": "1.331",
     "MSAppStructureVersion": "2.0"
   },
@@ -13,9 +13,7 @@
       "allowmultiplescreensincanvaspages": false,
       "appinsightserrortracing": false,
       "appinstrumentationcorrelationtracing": false,
-      "asyncnodedelegation": false,
       "autocreateenvironmentvariables": false,
-      "backfromhostaction": false,
       "behaviorpropertyui": false,
       "blockmovingcontrol": true,
       "cdsdataformatting": false,
@@ -42,7 +40,6 @@
       "enableonstart": true,
       "enableonstartnavigate": false,
       "enablepcfmoderndatasets": true,
-      "enablepowerautomatepane": true,
       "enablerowscopeonetonexpand": false,
       "enablerpawarecomponentdependency": true,
       "enablerulespanel": false,
@@ -52,7 +49,6 @@
       "enhanceddelegation": true,
       "enhancedgalleryinitialization": true,
       "errorhandling": true,
-      "excelcompatibility": false,
       "expandedsavedatasupport": true,
       "exportimportcomponents2": true,
       "externalmessage": false,
@@ -64,7 +60,6 @@
       "herocontrols": false,
       "improvedmediacapture": false,
       "improvedtabstopbehavior": false,
-      "impurenodedelegation": false,
       "isemptyrequirestableargument": true,
       "keeprecentscreensloaded": false,
       "longlivingcache": false,
@@ -77,6 +72,7 @@
       "parallelcodegen": false,
       "pdffunction": false,
       "powerfxdecimal": false,
+      "powerfxv1": false,
       "projectionmapping": true,
       "reactformulabar": false,
       "reliableconcurrent": true,
@@ -115,12 +111,13 @@
     "InstrumentationKey": "",
     "LocalDatabaseReferences": "{}",
     "ManualOfflineProfileId": "",
-    "Name": "11BOGO",
+    "Name": "11BOGO - change_env",
     "OriginatingVersion": "1.326",
-    "ParserErrorCount": 0
+    "ParserErrorCount": 0,
+    "ShowStatusBar": false
   },
   "PublishInfo": {
-    "AppName": "11BOGO",
+    "AppName": "11BOGO - change_env",
     "BackgroundColor": "rgba(109, 49, 162, 1)",
     "IconColor": "#ffffff",
     "IconName": "FavoriteStarFill",
