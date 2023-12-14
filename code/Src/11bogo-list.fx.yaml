@@ -1,0 +1,302 @@
+"'11bogo-list' As screen":
+    BackgroundImage: =bgi_resize
+    OnHidden: =//Clear(colSet);
+    OnVisible: =
+
+    ScrollCanvas As fluidGrid.fluidGridWithBlankCard:
+        BorderThickness: =0
+        Height: =956
+        Width: =Parent.Width
+        Y: =180
+        ZIndex: =2
+
+        ScrollSection As dataCard:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderStyle: =BorderStyle.Solid
+            BorderThickness: =0
+            DisplayMode: =DisplayMode.Edit
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =950
+            Visible: =true
+            Width: =Parent.Width
+            X: =0
+            Y: =0
+            ZIndex: =1
+
+            gal_bogo_list As gallery.galleryVertical:
+                DelayItemLoading: =true
+                Height: =915
+                Items: |-
+                    =SortByColumns(
+                        colBogoList,
+                        "OData__xc791__xc5c5__xc77c_",
+                        SortOrder.Descending
+                    )
+                Layout: =Layout.Vertical
+                LoadingSpinner: =LoadingSpinner.Data
+                TemplateSize: =70
+                Y: =35
+                ZIndex: =5
+
+                shp_line As rectangle:
+                    BorderColor: =RGBA(215, 223, 240, 1)
+                    BorderThickness: =1
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =1
+                    OnSelect: =Select(Parent)
+                    Visible: =!IsBlank(colBogoList)
+                    Width: =640
+                    Y: =shp_items.Y + shp_items.Height
+                    ZIndex: =1
+
+                lbl_bogo_create_date As label:
+                    Align: =Align.Center
+                    Color: =RGBA(255, 255, 255, 1)
+                    Height: =70
+                    OnSelect: =Select(Parent)
+                    Size: =14
+                    Text: =ThisItem.작업일
+                    Width: =lbl_col_create_date.Width
+                    ZIndex: =2
+
+                lbl_bogo_title As label:
+                    Align: =Align.Center
+                    Color: =RGBA(255, 255, 255, 1)
+                    Height: =70
+                    OnSelect: =Select(Parent)
+                    Size: =14
+                    Text: =ThisItem.Title
+                    Width: =lbl_col_title.Width
+                    X: =lbl_bogo_create_date.X + lbl_bogo_create_date.Width
+                    Y: =lbl_bogo_create_date.Y
+                    ZIndex: =3
+
+                lbl_bogo_contract As label:
+                    Align: =Align.Center
+                    Color: =RGBA(255, 255, 255, 1)
+                    Height: =70
+                    OnSelect: =Select(Parent)
+                    Size: =14
+                    Text: |-
+                        =If(
+                            Len(ThisItem.계약명.Value) > 20,
+                            Left(ThisItem.계약명.Value, 19)&"..."& "",
+                            ThisItem.계약명.Value
+                        )
+                    Width: =lbl_col_contract.Width
+                    X: =lbl_bogo_title.X + lbl_bogo_title.Width
+                    Y: =lbl_bogo_title.Y
+                    ZIndex: =4
+
+                lbl_bogo_time As label:
+                    Align: =Align.Center
+                    Color: =RGBA(255, 255, 255, 1)
+                    Height: =70
+                    OnSelect: =Select(Parent)
+                    Size: =14
+                    Text: |-
+                        =Text(Value(ThisItem.'총 지원시간 자동계산'), "#")
+                    Width: =lbl_col_time.Width
+                    X: =lbl_bogo_contract.X + lbl_bogo_contract.Width
+                    Y: =lbl_bogo_contract.Y
+                    ZIndex: =5
+
+                shp_items As rectangle:
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =70
+                    OnSelect: =Select(Parent)
+                    Width: =630
+                    ZIndex: =6
+
+            grp_column As group:
+                Height: =5
+                Width: =5
+                X: =40
+                Y: =40
+                ZIndex: =5
+
+                lbl_col_create_date As label:
+                    Align: =Align.Center
+                    BorderColor: =RGBA(0, 0, 0, 0.1)
+                    Color: =RGBA(255, 255, 255, 1)
+                    Fill: =RGBA(204, 231, 246, 0.3)
+                    Height: |
+                        =35
+                    Size: =12
+                    Text: ="Create Date"
+                    Width: =120
+                    ZIndex: =1
+
+                lbl_col_title As label:
+                    Align: =Align.Center
+                    BorderColor: =RGBA(0, 0, 0, 0.1)
+                    Color: =RGBA(255, 255, 255, 1)
+                    Fill: =RGBA(204, 231, 246, 0.3)
+                    Height: |
+                        =35
+                    Size: =12
+                    Text: ="Title"
+                    Width: =210
+                    X: =lbl_col_create_date.X + lbl_col_create_date.Width
+                    Y: =lbl_col_create_date.Y
+                    ZIndex: =2
+
+                lbl_col_contract As label:
+                    Align: =Align.Center
+                    BorderColor: =RGBA(0, 0, 0, 0.1)
+                    Color: =RGBA(255, 255, 255, 1)
+                    Fill: =RGBA(204, 231, 246, 0.3)
+                    Height: |
+                        =35
+                    Size: =12
+                    Text: ="Contract"
+                    Width: |
+                        =190
+                    X: =lbl_col_title.X + lbl_col_title.Width
+                    Y: =lbl_col_title.Y
+                    ZIndex: =3
+
+                lbl_col_time As label:
+                    Align: =Align.Center
+                    BorderColor: =RGBA(0, 0, 0, 0.1)
+                    Color: =RGBA(255, 255, 255, 1)
+                    Fill: =RGBA(204, 231, 246, 0.3)
+                    Height: |
+                        =35
+                    Size: =12
+                    Text: ="Time"
+                    Width: =120
+                    X: =lbl_col_contract.X + lbl_col_contract.Width
+                    Y: =lbl_col_contract.Y
+                    ZIndex: =4
+
+    btn_title_list As button:
+        BorderThickness: =0
+        DisplayMode: =DisplayMode.View
+        Fill: =RGBA(49, 59, 77, 1)
+        Height: =55
+        HoverFill: =RGBA(49, 59, 77, 1)
+        PressedFill: =RGBA(49, 59, 77, 1)
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =22
+        Text: ="11BOGO - LIST"
+        Width: =640
+        ZIndex: =3
+
+    Button2 As button:
+        Height: =70
+        OnSelect: |-
+            =UpdateContext({
+                //locTest : Filter('일일보고 Solution','만든 사람' = "구자호")
+                colBogoList : Filter(
+                    '일일보고 Solution',
+                    '만든 사람'.DisplayName = gblName And (작업일 > Today() - 30)
+                    )
+            });
+            
+            UpdateContext({
+                locTest : Filter(colBogoList, 작업일 > Today() - 10)
+            
+            })
+        Size: =24
+        Text: ="버튼"
+        Width: =280
+        X: =195
+        Y: =69
+        ZIndex: =7
+
+    Label11 As label:
+        Height: =70
+        Size: =21
+        Text: =First('일일보고 Solution').작업일
+        Width: =560
+        X: =40
+        Y: =1029
+        ZIndex: =8
+
+    grp_icn_list As group:
+        Height: =5
+        Width: =5
+        X: =60
+        Y: =60
+        ZIndex: =27
+
+        icn_set_back_list As icon.BackArrow:
+            Color: =RGBA(255, 255, 255, 1)
+            Height: =55
+            Icon: =Icon.BackArrow
+            OnSelect: =Navigate('11bogo-main');
+            PaddingBottom: =5
+            PaddingLeft: =5
+            PaddingRight: =5
+            PaddingTop: =5
+            Tooltip: ="뒤로가요"
+            Width: =55
+            ZIndex: =4
+
+        icn_edit_page_1 As icon.Edit:
+            Color: =RGBA(255, 255, 255, 1)
+            Height: =55
+            Icon: =Icon.Settings
+            OnSelect: |-
+                =//Navigate('11bogo-setting')
+                // 23.06.09 AZURE SQL SERVER 연결
+                ClearCollect(colSet,
+                    {
+                        sol_title : LookUp(SET_INFO_TB_V3, USER_EMAIL = gblUser).SOL_NAME,
+                        sol_detail : LookUp(SET_INFO_TB_V3, USER_EMAIL = gblUser).SOL_DETAIL,
+                        com_id : Text(LookUp(SET_INFO_TB_V3, USER_EMAIL = gblUser).COMPANY_ID),
+                        com_name : LookUp(SET_INFO_TB_V3, USER_EMAIL = gblUser).COMPANY_NAME,
+                        con_id : Text(LookUp(SET_INFO_TB_V3, USER_EMAIL = gblUser).CONT_ID),
+                        con_name : LookUp(SET_INFO_TB_V3, USER_EMAIL = gblUser).CONT_NAME,
+                        cnt_div : LookUp(SET_INFO_TB_V3, USER_EMAIL = gblUser).CONT_VAL,
+                        job_div : LookUp(SET_INFO_TB_V3, USER_EMAIL = gblUser).DIV_VALUE,
+                        free_min : Text(LookUp(SET_INFO_TB_V3, USER_EMAIL = gblUser).FREE_MINUTE),
+                        paid_min : Text(LookUp(SET_INFO_TB_V3, USER_EMAIL = gblUser).PAID_MINUTE) 
+                    }
+                );
+                /*
+                ClearCollect(colSet,
+                    {
+                        sol_title : LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).SOL_NAME,
+                        sol_detail : LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).SOL_DETAIL,
+                        com_id : Text(LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).COMPANY_ID),
+                        com_name : LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).COMPANY_NAME,
+                        con_id : Text(LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).CONT_ID),
+                        con_name : LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).CONT_NAME,
+                        cnt_div : LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).CONT_VAL,
+                        job_div : LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).DIV_VALUE,
+                        free_min : Text(LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).FREE_MINUTE), // 추가 23.03.08
+                        paid_min : Text(LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).PAID_MINUTE) // 추가 23.03.08
+                    }
+                );
+                */
+                Navigate('11bogo-modify')
+            PaddingBottom: =5
+            PaddingLeft: =5
+            PaddingRight: =5
+            PaddingTop: =5
+            Tooltip: ="수정화면으로 전환해요"
+            Width: =55
+            X: =585
+            ZIndex: =5
+
+        icn_refresh_list As icon.Reload:
+            Color: =RGBA(255, 255, 255, 1)
+            Height: =55
+            Icon: =Icon.Sync
+            OnSelect: |
+                =//Refresh(SET_INFO_TB);
+                Refresh('일일보고 Solution');
+            PaddingBottom: =5
+            PaddingLeft: =5
+            PaddingRight: =5
+            PaddingTop: =5
+            Tooltip: ="DB와 동기화해요"
+            Width: =55
+            X: =530
+            ZIndex: =6
+

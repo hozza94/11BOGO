@@ -37,6 +37,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "hidden",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -167,6 +168,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "html_welcome_msg",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -347,6 +349,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "timer",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [

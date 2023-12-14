@@ -52,6 +52,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "11bogo-vaca",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -240,6 +241,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "btn_title_vaca",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -493,7 +495,8 @@
           "NameMapSourceSchema": "?"
         },
         "ZIndex",
-        "Visible"
+        "Visible",
+        "MaxTemplateSize"
       ],
       "GalleryTemplateChildName": "galleryTemplate4_1",
       "HasDynamicProperties": false,
@@ -506,6 +509,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "gal_cal_event",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 14,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -643,6 +647,11 @@
           "Category": "Design",
           "PropertyName": "LoadingSpinnerColor",
           "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "MaxTemplateSize",
+          "RuleProviderType": "Unknown"
         }
       ],
       "StyleName": "defaultGalleryStyle",
@@ -692,7 +701,8 @@
         "Width",
         "Height",
         "ZIndex",
-        "Visible"
+        "Visible",
+        "MaxTemplateSize"
       ],
       "GalleryTemplateChildName": "galleryTemplate3_1",
       "HasDynamicProperties": false,
@@ -705,6 +715,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "gal_monthday",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 12,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -847,6 +858,11 @@
           "Category": "Design",
           "PropertyName": "LoadingSpinnerColor",
           "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "MaxTemplateSize",
+          "RuleProviderType": "Unknown"
         }
       ],
       "StyleName": "defaultGalleryStyle",
@@ -895,7 +911,8 @@
         "Width",
         "Height",
         "ZIndex",
-        "Visible"
+        "Visible",
+        "MaxTemplateSize"
       ],
       "GalleryTemplateChildName": "galleryTemplate2_1",
       "HasDynamicProperties": false,
@@ -908,6 +925,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "gal_weekday",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 11,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1045,6 +1063,11 @@
           "Category": "Design",
           "PropertyName": "LoadingSpinnerColor",
           "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "MaxTemplateSize",
+          "RuleProviderType": "Unknown"
         }
       ],
       "StyleName": "defaultGalleryStyle",
@@ -1065,6 +1088,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "galleryTemplate2_1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1092,6 +1116,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "galleryTemplate3_1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1119,6 +1144,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "galleryTemplate4_1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1251,6 +1277,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "icn_add",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1479,7 +1506,8 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "icn_Cal",
-      "ParentIndex": 10,
+      "OptimizeForDevices": "Off",
+      "ParentIndex": 9,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -1666,6 +1694,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "%CircleEvents.ID%",
       "Name": "icn_circle",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1878,6 +1907,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "icn_del",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -2110,7 +2140,8 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "icn_NextMonth",
-      "ParentIndex": 8,
+      "OptimizeForDevices": "Off",
+      "ParentIndex": 10,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -2352,6 +2383,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "icn_PrevMonth",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 7,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -2552,6 +2584,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "%SelectedCircle.ID%",
       "Name": "icn_Subcircle",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -2757,6 +2790,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "icn_vaca_back",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -3029,6 +3063,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "icn_vaca_reset",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -3293,6 +3328,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Icon2",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -3536,6 +3572,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Label2",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -3835,6 +3872,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "%MonthDayLbl.ID%",
       "Name": "lbl_day",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -4147,6 +4185,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "lbl_Month_Select",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 6,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -4456,6 +4495,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "lbl_Month_Select_1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 13,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -4785,6 +4825,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "lbl_notice_1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -5079,7 +5120,8 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "lbl_Reset_today",
-      "ParentIndex": 9,
+      "OptimizeForDevices": "Off",
+      "ParentIndex": 8,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -5352,6 +5394,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "%MeetingLengthLbl.ID%",
       "Name": "lbl_start_date",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -5581,6 +5624,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "%WeekdayLbl.ID%",
       "Name": "lbl_weekday",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -5795,6 +5839,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "%CalendarEventsBkg.ID%",
       "Name": "rec_BG",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -5931,6 +5976,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "rec_Separator1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [

@@ -45,6 +45,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "11bogo-add",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -247,6 +248,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "btn_title_poem_1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -660,6 +662,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "cmb_poem_title_1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1025,6 +1028,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "icn_poem_back_1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1304,6 +1308,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "icn_save_2",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1566,6 +1571,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "lbl_notice_3",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1868,6 +1874,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "lbl_poem_content_1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 10,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -2165,6 +2172,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "lbl_poem_poet_1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 8,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -2462,6 +2470,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "lbl_poem_title_1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 6,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -2716,6 +2725,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "shpbgSelect_poem_1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -2945,6 +2955,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "txt_poem_content_1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 11,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -3271,6 +3282,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "txt_poem_poet_1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 9,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -3602,6 +3614,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "txt_poem_title_1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 7,
       "PersistMetaDataIDKey": false,
       "Properties": [
