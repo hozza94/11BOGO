@@ -234,9 +234,9 @@
                     user_email : gblUser,
             
                     free_min: If(
-                        IsBlank(txt_free_min_modi.Text),
+                        IsBlank(txt_free_min_modi_sel.Text),
                         0,
-                        Value(txt_free_min_modi.Text)
+                        Value(txt_free_min_modi_sel.Text)
                     ),
                     paid_min: If(
                         IsBlank(txt_paid_min_modi_sel.Text),
@@ -291,6 +291,7 @@
                 }
             );
             
+            Refresh('일일보고 Solution');
             Notify("수정 완료!", NotificationType.Success, 2500);
             Back();
         PaddingBottom: =5
