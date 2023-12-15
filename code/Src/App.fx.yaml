@@ -33,7 +33,7 @@ App As appinfo:
         Set(gblAlarmOnOff, LookUp(SET_INFO_TB_V3, USER_EMAIL = gblUser).TODAY_RUN_YN);
         
         
-        Set( new_click_flag, false );
+        Set( new_click_flag, true );
         
         // 23.06.09 AZURE SQL SERVER 연결
         ClearCollect(colSet,

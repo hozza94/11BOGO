@@ -239,9 +239,9 @@
                         Value(txt_free_min_modi.Text)
                     ),
                     paid_min: If(
-                        IsBlank(txt_paid_min_modi.Text),
+                        IsBlank(txt_paid_min_modi_sel.Text),
                         0,
-                        Value(txt_paid_min_modi.Text)
+                        Value(txt_paid_min_modi_sel.Text)
                     ),
             
                     // SQL SEVER ver
@@ -262,10 +262,37 @@
                     ID = First(colSelectBogo).bogo_id
                 ),
                 {
-                    Title: First(colSelectModify).sol_title,
-                    'Solution 상세 내용': First(colSelectModify).sol_detail
+                    'Solution 명' : First(colSelectModify).sol_title,
+                    'Solution 상세 내용': First(colSelectModify).sol_detail,
+                    회사명: First(
+                        Table({
+                            Id : First(colSelectModify).cmp_id,
+                            Value : First(colSelectModify).cmp_name
+                        })
+                    ),
+                    계약명: First(
+                        Table({
+                            Id : First(colSelectModify).cnt_id,
+                            Value : First(colSelectModify).cnt_name
+                        })
+                    ),
+                    '계약 구분': First(
+                        Table({
+                            Value: First(colSelectModify).cnt_div
+                        })
+                    ),
+                    '업무 구분': First(
+                        Table({
+                            Value : First(colSelectModify).job_div
+                        })
+                    ),
+                    '무상지원시간(분단위)': First(colSelectModify).free_min,
+                    '유상지원시간(분단위)': First(colSelectModify).paid_min
                 }
-            )
+            );
+            
+            Notify("수정 완료!", NotificationType.Success, 2500);
+            Back();
         PaddingBottom: =5
         PaddingLeft: =5
         PaddingRight: =5

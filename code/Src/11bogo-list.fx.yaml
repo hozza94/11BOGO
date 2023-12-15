@@ -92,7 +92,7 @@
                     Height: =70
                     OnSelect: =Select(Parent)
                     Size: =14
-                    Text: =ThisItem.Title
+                    Text: =ThisItem.'Solution 명'
                     Width: =lbl_col_title.Width
                     X: =lbl_bogo_create_date.X + lbl_bogo_create_date.Width
                     Y: =lbl_bogo_create_date.Y
@@ -139,7 +139,7 @@
                         ClearCollect(colSelectBogo,
                             {
                                 bogo_id : ThisItem.ID,
-                                sol_title : ThisItem.Title,
+                                sol_title : ThisItem.'Solution 명',
                                 sol_detail : ThisItem.'Solution 상세 내용',
                                 //com_id : 1,
                                 com_name : ThisItem.회사명,
@@ -256,9 +256,10 @@
             Color: =RGBA(255, 255, 255, 1)
             Height: =55
             Icon: =Icon.Sync
-            OnSelect: |
+            OnSelect: |-
                 =//Refresh(SET_INFO_TB);
                 Refresh('일일보고 Solution');
+                Notify("새로고침 완료!", NotificationType.Success, 2500);
             PaddingBottom: =5
             PaddingLeft: =5
             PaddingRight: =5

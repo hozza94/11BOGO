@@ -4,8 +4,8 @@
         =If(
             gblNotiFlag = "N",
             // 업데이트 공지
-            Notify("ver 0.9 Azure SQL SERVER로 DB 이전!
-            이제 서버가 꺼져있을 염려는 없어요! '^'", NotificationType.Information, 3000);
+            Notify("ver 0.91 작성된 BOGO 내용 수정기능 업데이트!
+            잘못 입력된 BOGO가 있다면 수정까지 '^'!", NotificationType.Information, 3000);
             Set(gblNotiFlag, "Y");
             //Patch(USER_TB, First(Filter(USER_TB, USER_EMAIL = gblUser)),{NOTI_FLAG: "Y"});
             //Patch(USER_TB_V2, First(Filter(USER_TB_V2, USER_EMAIL = gblUser)),{NOTI_FLAG: "Y"});
@@ -111,7 +111,7 @@
         Color: =RGBA(255, 255, 255, 1)
         Height: =38
         Size: =12
-        Text: ="DEAR LHCN / version 0.9 Copyright 2023. 945"
+        Text: ="DEAR LHCN / version 0.91 Copyright 2023. 945"
         Tooltip: ="LHCN에게 바칩니다."
         Width: =640
         Y: =1098
@@ -368,12 +368,6 @@
         Icon: =Icon.Database
         OnSelect: =Navigate('11bogo-list');
         Tooltip: ="작성 목록을 확인해요"
-        Visible: |-
-            =If(
-                gblUser = "noah.ku@mavencloudservice.com",
-                true,
-                false
-            )
         Width: =60
         X: =290
         Y: =440
