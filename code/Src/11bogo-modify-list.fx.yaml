@@ -1,0 +1,1022 @@
+"'11bogo-modify-list' As screen":
+    BackgroundImage: =bgi_resize
+    OnHidden: |-
+        =Clear(colSendSetv2);
+        
+        // 계약구분 VALUE
+        UpdateContext({
+            cnt_value_tb : Blank()
+        });
+        
+        // 업무구분 VALUE
+        UpdateContext({
+            job_value_tb : Blank()
+        });
+    OnVisible: |
+        =/*UpdateContext({
+            // 기본 값 초기화
+            locCmpId_modify: 0,
+            locCntId_modify: 0,
+            locCmpName_modify: "",
+            locCntName_modify: "",
+            locCntDiv_modify: Table({ cnt_div : First(colSet).cnt_div}),
+            locJobDiv_modify: Table({ job_div : First(colSet).job_div}),
+        
+            locModalCmp_modify: false,
+            locModalCnt_modify: false
+            
+            // 23.01.10 콤보박스 선택시 배경 글자 지울 flag
+            // locBgFlag: true
+        });*/
+        // 현재 작성한 정보 컬렉션에 저장
+        
+        Clear(colSendSetv2);
+        
+        // 계약구분 VALUE
+        UpdateContext({
+            cnt_value_tb : Table(
+                {cnt_div : "CSP"},
+                {cnt_div : "내부업무"},
+                {cnt_div : "유지보수"},
+                {cnt_div : "프로젝트"}
+            )
+        });
+        
+        // 업무구분 VALUE
+        UpdateContext({
+            job_value_tb : Table(
+                {job_div : "CSP_교육지원"},
+                {job_div : "CSP_기술지원"},
+                {job_div : "CSP_업무지원"},
+                {job_div : "교육센터_교육지원"},
+                {job_div : "유지보수_개발수정"},
+                {job_div : "유지보수_개발신규"},
+                {job_div : "유지보수_교육지원"},
+                {job_div : "유지보수_방문지원"},
+                {job_div : "유지보수_업무상담"},
+                {job_div : "유지보수_오류대응"},
+                {job_div : "일반업무_기타지원"},
+                {job_div : "일반업무_연구개발"},
+                {job_div : "일반업무_영업지원"},
+                {job_div : "프로젝트_교육지원"},
+                {job_div : "프로젝트_방문개발"},
+                {job_div : "프로젝트_본사개발"},
+                {job_div : "프로젝트_본사컨설"}
+            )
+        });
+        /*
+        UpdateContext({
+            locCmpId_modify: Value(First(colSet).com_id),
+            locCmpName_modify: First(colSet).com_name,
+            locCntId_modify: Value(First(colSet).con_id),
+            locCntName_modify: First(colSet).con_name
+        });
+        */
+        Reset(cmb_cnt_modify_1);
+        Reset(cmb_job_modify_1);
+
+    btn_title_modify_1 As button:
+        BorderThickness: =0
+        DisplayMode: =DisplayMode.View
+        Fill: =RGBA(49, 59, 77, 1)
+        Height: =55
+        HoverFill: =RGBA(49, 59, 77, 1)
+        PressedFill: =RGBA(49, 59, 77, 1)
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =22
+        Text: ="11BOGO - MODIFY"
+        Width: =640
+        ZIndex: =1
+
+    shpbgSelect_modify_1 As rectangle:
+        Fill: =RGBA(0, 0, 0, 0%)
+        Height: =1076
+        OnSelect: |
+            =If( 
+                locBgFlag,
+                UpdateContext({
+                    locBgFlag : false
+                }),
+                UpdateContext({
+                    locBgFlag : true
+                })
+            )
+        Visible: =false
+        Width: =640
+        Y: =60
+        ZIndex: =2
+
+    lbl_contract_div_modify_1 As label:
+        Color: =RGBA(255, 255, 255, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =50
+        Size: =16
+        Text: ="계약구분"
+        Width: =560
+        X: =40
+        Y: =720
+        ZIndex: =3
+
+    lbl_job_div_modify_1 As label:
+        Color: =RGBA(255, 255, 255, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =50
+        Size: =16
+        Text: ="업무구분"
+        Width: =560
+        X: =40
+        Y: =855
+        ZIndex: =4
+
+    lb_search_company_modify_1 As text:
+        BorderColor: =RGBA(255, 255, 255, 1)
+        Clear: =true
+        Color: =RGBA(255, 255, 255, 1)
+        Default: |
+            =If(
+                IsBlank(locCmpName_modify),
+                First(colSelectBogo).com_name.Value,
+                locCmpName_modify
+            )
+        Fill: =RGBA(0, 0, 0, 0)
+        Height: =60
+        HintText: =//"company name"
+        HoverBorderColor: =RGBA(255, 255, 255, 1)
+        HoverFill: =ColorFade(RGBA(230, 239, 239, 50%), 0%)
+        OnChange: |-
+            =UpdateContext({
+                locCmpName_modify: ""
+            });
+        Reset: =true
+        Size: =16
+        Width: =560
+        X: =40
+        Y: =495
+        ZIndex: =5
+
+    lb_search_contract_modify_1 As text:
+        BorderColor: =RGBA(255, 255, 255, 1)
+        Clear: =true
+        Color: =RGBA(255, 255, 255, 1)
+        Default: |
+            =If(
+                IsBlank(locCntName_modify),
+                First(colSelectBogo).con_name.Value,
+                locCntName_modify
+            )
+        Fill: =RGBA(0, 0, 0, 0)
+        Height: =60
+        HintText: =//"contract name"
+        HoverBorderColor: =RGBA(255, 255, 255, 1)
+        HoverFill: =ColorFade(RGBA(230, 239, 239, 50%), 0%)
+        OnChange: |-
+            =UpdateContext({
+                locCntName_modify: "",
+                locCntId_modify: 0
+            }); 
+        Reset: =true
+        Size: =16
+        Width: =560
+        X: =40
+        Y: =625
+        ZIndex: =6
+
+    icn_save_modify_1 As icon.Save:
+        Color: =RGBA(255, 255, 255, 1)
+        DisabledColor: =RGBA(128, 128, 128, 1)
+        DisplayMode: |-
+            =If(
+                locModalCmp_modify Or locModalCnt_modify,
+                DisplayMode.Disabled,
+                DisplayMode.Edit
+            )
+        Height: =55
+        Icon: =Icon.Save
+        OnSelect: |
+            =// 23.04.20 SQL SERVER로 변경 후 수정 로직
+            ClearCollect(
+                colSendSetv2,
+                {
+                    sol_title : txt_sol_title_write_1.Text,
+                    sol_detail : txt_sol_detail_write_1.Text,
+                    cmp_id : If(
+                        IsBlank(locCmpId_modify),
+                        Value(First(colSet).com_id),
+                        locCmpId_modify
+                        ),
+                    cmp_name : If(
+                        IsBlank(locCmpName_modify),
+                        First(colSet).com_name,
+                        locCmpName_modify
+                        ),
+                    cnt_id : If(
+                        IsBlank(locCntId_modify),
+                        Value(First(colSet).con_id),
+                        locCntId_modify
+                        ),
+                    cnt_name : If(
+                        IsBlank(locCntName_modify),
+                        First(colSet).con_name,
+                        locCntName_modify
+                        ),
+                    cnt_div : First(locCntDiv_modify).cnt_div,
+                    job_div : First(locJobDiv_modify).job_div,
+            
+                    user_email : gblUser,
+            
+                    free_min: If(
+                        IsBlank(txt_free_min_modi_1.Text),
+                        0,
+                        Value(txt_free_min_modi_1.Text)
+                    ),
+                    paid_min: If(
+                        IsBlank(txt_paid_min_modi_1.Text),
+                        0,
+                        Value(txt_paid_min_modi_1.Text)
+                    ),
+            
+                    // SQL SEVER ver
+                    // user_no : LookUp(USER_TB_V2, USER_EMAIL = gblUser).USER_NO,
+                    // info_key : LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).SET_INFO_KEY
+                    
+                    // AZURE SQL SERVER
+                    user_no : LookUp(USER_TB_V3, USER_EMAIL = gblUser).USER_NO,
+                    info_key : LookUp(SET_INFO_TB_V3, USER_EMAIL = gblUser).SET_INFO_KEY
+                }
+            );
+            
+            // Set(gbltest, JSON(colSendSet,IgnoreUnsupportedTypes));
+            
+            // 필수 값에 대한 알림 출력 후 PA로 보내서 작성 값 저장
+            If( 
+                IsBlank(txt_sol_title_write_1),
+                Notify("솔루션 제목을 입력해주세요", NotificationType.Warning, 2500),
+                IsBlank(txt_sol_detail_write_1),
+                Notify("솔루션 내용을 입력해주세요", NotificationType.Warning, 2500),
+                IsBlank(lb_search_company_modify_1),
+                Notify("담당 회사를 선택해주세요", NotificationType.Warning, 2500),
+                IsBlank(First(colSendSetv2).cnt_div),
+                Notify("계약 구분을 선택해주세요", NotificationType.Warning, 2500),
+                IsBlank(First(colSendSetv2).job_div),
+                Notify("업무 구분을 선택해주세요", NotificationType.Warning, 2500),
+            
+                If(
+                    //'11BOGO_SET_INFOVer.2(SQLSERVER)'.Run(JSON(colSendSetv2,JSONFormat.IgnoreUnsupportedTypes)).status = "success",
+                    '11BOGO_SET_INFOVer.3(AZURESQLSERVER)'.Run(JSON(colSendSetv2,JSONFormat.IgnoreUnsupportedTypes)).status = "success",
+                    Notify("저장 완료", NotificationType.Success, 2500);
+                    Refresh(SET_INFO_TB_V3);
+                    // 저장 후 리셋
+                    Reset(lb_search_company_modify_1);
+                    Reset(lb_search_contract_modify_1);
+                    Reset(txt_sol_detail_write_1);
+                    Reset(txt_sol_title_write_1);
+                    Reset(cmb_cnt_modify_1);
+                    Reset(cmb_job_modify_1);
+                    Reset(txt_free_min_modi_1);
+                    Reset(txt_paid_min_modi_1);
+                    Clear(colSendSetv2);
+                    // 현재 나의 세팅
+                    /*ClearCollect(colSet,
+                        {
+                            sol_title : LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).SOL_NAME,
+                            sol_detail : LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).SOL_DETAIL,
+                            com_id : Text(LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).COMPANY_ID),
+                            com_name : LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).COMPANY_NAME,
+                            con_id : Text(LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).CONT_ID),
+                            con_name : LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).CONT_NAME,
+                            cnt_div : LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).CONT_VAL,
+                            job_div : LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).DIV_VALUE,
+                            free_min : Text(LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).FREE_MINUTE), // 추가 23.03.08
+                            paid_min : Text(LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).PAID_MINUTE) // 추가 23.03.08
+                        }
+                    );*/
+                    // 23.06.09 AZURE SQL SERVER 연결
+                    ClearCollect(colSet,
+                        {
+                            sol_title : LookUp(SET_INFO_TB_V3, USER_EMAIL = gblUser).SOL_NAME,
+                            sol_detail : LookUp(SET_INFO_TB_V3, USER_EMAIL = gblUser).SOL_DETAIL,
+                            com_id : Text(LookUp(SET_INFO_TB_V3, USER_EMAIL = gblUser).COMPANY_ID),
+                            com_name : LookUp(SET_INFO_TB_V3, USER_EMAIL = gblUser).COMPANY_NAME,
+                            con_id : Text(LookUp(SET_INFO_TB_V3, USER_EMAIL = gblUser).CONT_ID),
+                            con_name : LookUp(SET_INFO_TB_V3, USER_EMAIL = gblUser).CONT_NAME,
+                            cnt_div : LookUp(SET_INFO_TB_V3, USER_EMAIL = gblUser).CONT_VAL,
+                            job_div : LookUp(SET_INFO_TB_V3, USER_EMAIL = gblUser).DIV_VALUE,
+                            free_min : Text(LookUp(SET_INFO_TB_V3, USER_EMAIL = gblUser).FREE_MINUTE),
+                            paid_min : Text(LookUp(SET_INFO_TB_V3, USER_EMAIL = gblUser).PAID_MINUTE) 
+                        }
+                    );
+                    Navigate('11bogo-show');
+                    ,
+                    Notify("저장 실패 Noah Ku에게 문의하시기 바랍니다.", NotificationType.Error, 2500)
+                );
+            );
+            
+            Refresh(SET_INFO_TB_V3);
+            
+            
+            /* 기존 로직
+            // 현재 작성한 정보 컬렉션에 저장
+            ClearCollect(
+                colSendSet,
+                {
+                    sol_title : txt_sol_title_write.Text,
+                    sol_detail : txt_sol_detail_write.Text,
+                    cmp_id : If(
+                        IsBlank(locCmpId_modify),
+                        Value(First(colSet).com_id),
+                        locCmpId_modify
+                        ),
+                    cmp_name : If(
+                        IsBlank(locCmpName_modify),
+                        First(colSet).com_name,
+                        locCmpName_modify
+                        ),
+                    cnt_id : If(
+                        IsBlank(locCntId_modify),
+                        Value(First(colSet).con_id),
+                        locCntId_modify
+                        ),
+                    cnt_name : If(
+                        IsBlank(locCntName_modify),
+                        First(colSet).con_name,
+                        locCntName_modify
+                        ),
+                    cnt_div : First(locCntDiv_modify).cnt_div,
+                    job_div : First(locJobDiv_modify).job_div,
+            
+                    user_email : gblUser,
+            
+                    free_min: If(
+                        IsBlank(txt_free_min_modi.Text),
+                        0,
+                        Value(txt_free_min_modi.Text)
+                    ),
+                    paid_min: If(
+                        IsBlank(txt_paid_min_modi.Text),
+                        0,
+                        Value(txt_paid_min_modi.Text)
+                    )
+                }
+            );
+            
+            // Set(gbltest, JSON(colSendSet,IgnoreUnsupportedTypes));
+            
+            // 필수 값에 대한 알림 출력 후 PA로 보내서 작성 값 저장
+            If( 
+                IsBlank(txt_sol_title_write),
+                Notify("솔루션 제목을 입력해주세요", NotificationType.Warning, 2500),
+                IsBlank(txt_sol_detail_write),
+                Notify("솔루션 내용을 입력해주세요", NotificationType.Warning, 2500),
+                IsBlank(lb_search_company_modify),
+                Notify("담당 회사를 선택해주세요", NotificationType.Warning, 2500),
+                IsBlank(First(colSendSet).cnt_div),
+                Notify("계약 구분을 선택해주세요", NotificationType.Warning, 2500),
+                IsBlank(First(colSendSet).job_div),
+                Notify("업무 구분을 선택해주세요", NotificationType.Warning, 2500),
+            
+                If(
+                    '11BOGO_SET_INFO'.Run(JSON(colSendSet,JSONFormat.IgnoreUnsupportedTypes)).status = "success",
+                    Notify("저장 완료", NotificationType.Success, 2500);
+                    Refresh(SET_INFO_TB);
+                    // 저장 후 리셋
+                    Reset(lb_search_company_modify);
+                    Reset(lb_search_contract_modify);
+                    Reset(txt_sol_detail_write);
+                    Reset(txt_sol_title_write);
+                    Reset(cmb_cnt_modify);
+                    Reset(cmb_job_modify);
+                    Reset(txt_free_min_modi);
+                    Reset(txt_paid_min_modi);
+                    Clear(colSendSet);
+                    // 현재 나의 세팅
+                    ClearCollect(colSet,
+                        {
+                            sol_title : LookUp(SET_INFO_TB, USER_EMAIL = gblUser).SOL_NAME,
+                            sol_detail : LookUp(SET_INFO_TB, USER_EMAIL = gblUser).SOL_DETAIL,
+                            com_id : LookUp(SET_INFO_TB, USER_EMAIL = gblUser).COMPANY_ID,
+                            com_name : LookUp(SET_INFO_TB, USER_EMAIL = gblUser).COMPANY_NAME,
+                            con_id : LookUp(SET_INFO_TB, USER_EMAIL = gblUser).CONT_ID,
+                            con_name : LookUp(SET_INFO_TB, USER_EMAIL = gblUser).CONT_NAME,
+                            cnt_div : LookUp(SET_INFO_TB, USER_EMAIL = gblUser).CONT_VAL,
+                            job_div : LookUp(SET_INFO_TB, USER_EMAIL = gblUser).DIV_VALUE,
+                            free_min : LookUp(SET_INFO_TB, USER_EMAIL = gblUser).FREE_MINUTE, // 추가 23.03.08
+                            paid_min : LookUp(SET_INFO_TB, USER_EMAIL = gblUser).PAID_MINUTE // 추가 23.03.08
+                        }
+                    );
+                    Navigate('11bogo-show');
+                    ,
+                    Notify("저장 실패 Noah Ku에게 문의하시기 바랍니다.", NotificationType.Error, 2500)
+                );
+            );
+            
+            Refresh(SET_INFO_TB);
+            */
+        PaddingBottom: =5
+        PaddingLeft: =5
+        PaddingRight: =5
+        PaddingTop: =5
+        Tooltip: ="변경 내용을 저장해요"
+        Width: =55
+        X: =475
+        ZIndex: =13
+
+    icn_reset_modify_1 As icon.Save:
+        Color: =RGBA(255, 255, 255, 1)
+        DisabledColor: =RGBA(128, 128, 128, 1)
+        DisplayMode: |-
+            =If(
+                locModalCmp_modify Or locModalCnt_modify,
+                DisplayMode.Disabled,
+                DisplayMode.Edit
+            )
+        Height: =55
+        Icon: =Icon.Undo
+        OnSelect: |-
+            =// 작성 내용 리셋
+            
+            UpdateContext({
+                locCmpId_modify: Value(First(colSet).com_id),
+                locCmpName_modify: First(colSet).com_name,
+                locCntId_modify: Value(First(colSet).con_id),
+                locCntName_modify: First(colSet).con_name
+            });
+            
+            Reset(lb_search_company_modify_1);
+            Reset(lb_search_contract_modify_1);
+            Reset(txt_sol_detail_write_1);
+            Reset(txt_sol_title_write_1);
+            Reset(cmb_cnt_modify_1);
+            Reset(cmb_job_modify_1);
+            Reset(txt_free_min_modi_1);
+            Reset(txt_paid_min_modi_1);
+            
+            //Clear(colSendSet);
+            Clear(colSendSetv2);
+            
+            Notify("변경 내용 취소", NotificationType.Success, 2500);
+        PaddingBottom: =5
+        PaddingLeft: =5
+        PaddingRight: =5
+        PaddingTop: =5
+        Tooltip: ="원상태로 되돌려요"
+        Width: =55
+        X: =530
+        ZIndex: =14
+
+    icn_com_search_modify_1 As icon.Search:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =60
+        Icon: =Icon.Search
+        OnSelect: |-
+            =UpdateContext({
+                locModalCmp_modify: true,
+                locCmpName_modify: lb_search_company_modify_1.Text
+            });
+        PaddingBottom: =10
+        PaddingLeft: =10
+        PaddingRight: =10
+        PaddingTop: =10
+        Width: =60
+        X: =480
+        Y: =495
+        ZIndex: =15
+
+    icn_cnt_search_modify_1 As icon.Search:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =60
+        Icon: =Icon.Search
+        OnSelect: |-
+            =UpdateContext({
+                locModalCnt_modify: true,
+                locCntName_modify: lb_search_contract_modify_1.Text
+            });
+        PaddingBottom: =10
+        PaddingLeft: =10
+        PaddingRight: =10
+        PaddingTop: =10
+        Width: =60
+        X: =480
+        Y: =625
+        ZIndex: =16
+
+    gal_company_modify_1 As gallery.galleryVertical:
+        Height: =330
+        Items: |-
+            =If(
+                IsBlank(lb_search_company_modify_1.Text),
+                거래처,
+                locCmpName_modify = "",
+                Filter(
+                    거래처
+                    ,lb_search_company_modify_1.Text in 거래처명
+                ),
+                Filter(
+                    거래처
+                    ,locCmpName_modify in 거래처명
+                )
+            )
+            
+            /*
+            If(
+                IsBlank(txtSearchPeer.Text),
+                Blank(),
+                Filter(
+                    EMPLOYEE_TB
+                    //,StartsWith(emp_name_kor,txtSearchPeer.Text)
+                    ,txtSearchPeer.Text in emp_name_kor
+                    ,emp_key <> gblUserEmpKey && emp_key <> gblUserManagerEmpKey
+                    ,is_enable_yn = "Y"
+                    ,is_resign_yn = "N"
+                    ,emp_auth_lvl <> 9999
+                )
+            )
+            */
+        Layout: =Layout.Vertical
+        TemplateSize: =61
+        Visible: =locModalCmp_modify
+        Width: =550
+        X: =45
+        Y: =360
+        ZIndex: =19
+
+        btn_company_name_modify_1 As button:
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =60
+            HoverColor: =RGBA(215, 223, 240, 1)
+            HoverFill: =ColorFade(RGBA(230, 239, 239, 1), 50%)
+            OnSelect: |-
+                =UpdateContext({
+                    locCmpName_modify: ThisItem.거래처명,
+                    locCmpId_modify: ThisItem.ID,
+                
+                    locModalCmp_modify: false
+                });
+            PressedColor: =ColorFade(RGBA(230, 239, 239, 1), -20%)
+            PressedFill: =ColorFade(RGBA(230, 239, 239, 1), 0%)
+            Size: =18
+            Text: =ThisItem.거래처명
+            Width: =530
+            ZIndex: =2
+
+    gal_contract_modify_1 As gallery.galleryVertical:
+        Height: =330
+        Items: |-
+            =If(
+                IsBlank(lb_search_contract_modify_1.Text),
+                계약명,
+                locCntName_modify = "", 
+                Filter(
+                    계약명
+                    ,lb_search_contract_modify_1.Text in 계약명
+                ),
+                    Filter(
+                    계약명
+                    ,locCntName_modify in 계약명
+                )
+            )
+            /*
+            If(
+                IsBlank(txtSearchPeer.Text),
+                Blank(),
+                Filter(
+                    EMPLOYEE_TB
+                    //,StartsWith(emp_name_kor,txtSearchPeer.Text)
+                    ,txtSearchPeer.Text in emp_name_kor
+                    ,emp_key <> gblUserEmpKey && emp_key <> gblUserManagerEmpKey
+                    ,is_enable_yn = "Y"
+                    ,is_resign_yn = "N"
+                    ,emp_auth_lvl <> 9999
+                )
+            )
+            */
+        Layout: =Layout.Vertical
+        TemplateSize: =61
+        Visible: =locModalCnt_modify
+        Width: =550
+        X: =45
+        Y: =360
+        ZIndex: =20
+
+        btn_contract_modify_1 As button:
+            Color: =RGBA(230, 230, 230, 1)
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =60
+            HoverColor: =RGBA(215, 223, 240, 1)
+            HoverFill: =ColorFade(RGBA(230, 239, 239, 1), 50%)
+            OnSelect: |-
+                =UpdateContext({
+                    locCntName_modify: ThisItem.계약명,
+                    locCntId_modify : ThisItem.ID,
+                    
+                    locModalCnt_modify: false
+                });
+            PressedColor: =ColorFade(RGBA(230, 239, 239, 1), -20%)
+            PressedFill: =ColorFade(RGBA(230, 239, 239, 1), 0%)
+            Size: =18
+            Text: =ThisItem.계약명
+            Width: =530
+            ZIndex: =2
+
+    cmb_job_modify_1 As combobox:
+        BorderColor: =RGBA(255, 255, 255, 1)
+        ChevronBackground: =RGBA(0, 0, 0, 0)
+        ChevronHoverBackground: =ColorFade(RGBA(230, 239, 239, 1), 0%)
+        Color: =RGBA(255, 255, 255, 1)
+        DefaultSelectedItems: =First(colSelectBogo.job_div)
+        DisplayFields: =["job_div"]
+        Fill: =RGBA(0, 0, 0, 0)
+        Height: =60
+        HoverFill: =ColorFade(RGBA(230, 239, 239, 1), 0%)
+        InputTextPlaceholder: ="업무 구분"
+        IsSearchable: =false
+        Items: =job_value_tb
+        OnChange: |-
+            =UpdateContext({
+                locJobDiv_modify: cmb_job_modify_1.SelectedItems
+            });
+        PaddingBottom: =10
+        PressedFill: =ColorFade(RGBA(230, 239, 239, 1), 0%)
+        Reset: =true
+        SearchFields: =["job_div"]
+        SearchItems: =[]
+        SelectionFill: =//ColorFade(RGBA(230, 239, 239, 1), 0%)
+        SelectMultiple: =false
+        Size: =16
+        Width: =560
+        X: =40
+        Y: =905
+        ZIndex: =21
+
+    cmb_cnt_modify_1 As combobox:
+        BorderColor: =RGBA(255, 255, 255, 1)
+        ChevronBackground: =RGBA(0, 0, 0, 0)
+        ChevronHoverBackground: =ColorFade(RGBA(230, 239, 239, 1), 50%)
+        Color: =RGBA(255, 255, 255, 1)
+        DefaultSelectedItems: =First(colSelectBogo).cnt_div
+        DisplayFields: =["cnt_div"]
+        Fill: =RGBA(0, 0, 0, 0)
+        Height: =60
+        HoverBorderColor: =//ColorFade(Self.BorderColor, 15%)
+        HoverFill: =ColorFade(RGBA(230, 239, 239, 1), 0%)
+        InputTextPlaceholder: ="계약 구분"
+        IsSearchable: =false
+        Items: =cnt_value_tb
+        NoSelectionText: =
+        OnChange: |-
+            =UpdateContext({
+                locCntDiv_modify: cmb_cnt_modify_1.SelectedItems
+            });
+        OnSelect: |-
+            =/*
+            If( 
+                locBgFlag,
+                UpdateContext({
+                    locBgFlag : false
+                }),
+                UpdateContext({
+                    locBgFlag : true
+                })
+            )
+            */
+            // 2023.01.16 주석처리 핸드폰에서 직접 사용 했을때 필요성이 느껴지지 않음
+        PaddingBottom: =10
+        PressedFill: =ColorFade(RGBA(230, 239, 239, 1), 0%)
+        Reset: =true
+        SearchFields: =["cnt_div"]
+        SearchItems: =[]
+        SelectionFill: =//ColorFade(RGBA(230, 239, 239, 1), 0%)
+        SelectMultiple: =false
+        Size: =16
+        Width: =560
+        X: =40
+        Y: =775
+        ZIndex: =22
+
+    grp_lbl_modify_1 As group:
+        Height: =5
+        Width: =5
+        X: =60
+        Y: =60
+        ZIndex: =22
+
+        lbl_sol_title_set_modify_1 As label:
+            Color: =RGBA(255, 255, 255, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =50
+            Size: =16
+            Text: ="솔루션 제목"
+            Width: =560
+            X: =40
+            Y: =85
+            ZIndex: =9
+
+        lbl_sol_detail_set_modify_1 As label:
+            Color: =RGBA(255, 255, 255, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =50
+            Size: =16
+            Text: ="솔루션 내용"
+            Width: =560
+            X: =40
+            Y: =225
+            ZIndex: =10
+
+        lbl_company_modify_1 As label:
+            Color: =RGBA(255, 255, 255, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =50
+            Size: =16
+            Text: ="회사명"
+            Width: =560
+            X: =40
+            Y: =445
+            ZIndex: =11
+
+        lbl_contract_modify_1 As label:
+            Color: =RGBA(255, 255, 255, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =50
+            Size: =16
+            Text: ="계약명"
+            Width: =560
+            X: =40
+            Y: =575
+            ZIndex: =12
+
+    grp_input_modify_1 As group:
+        Height: =5
+        Width: =5
+        X: =60
+        Y: =60
+        ZIndex: =22
+
+        txt_sol_title_write_1 As text:
+            BorderColor: =RGBA(255, 255, 255, 1)
+            Color: =RGBA(255, 255, 255, 1)
+            Default: =First(colSelectBogo).sol_title
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =70
+            HintText: =//"solution title"
+            HoverBorderColor: =RGBA(240, 240, 240, 0.14)
+            HoverFill: =ColorFade(RGBA(230, 239, 239, 50%), 0%)
+            Size: =16
+            Width: =560
+            X: =40
+            Y: =135
+            ZIndex: =7
+
+        txt_sol_detail_write_1 As text:
+            BorderColor: =RGBA(255, 255, 255, 1)
+            Color: =RGBA(255, 255, 255, 1)
+            Default: =First(colSelectBogo).sol_detail
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =150
+            HintText: =//"solution detail"
+            HoverBorderColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =ColorFade(RGBA(230, 239, 239, 50%), 0%)
+            Mode: =TextMode.MultiLine
+            Size: =16
+            Width: =560
+            X: =40
+            Y: =275
+            ZIndex: =8
+
+    icn_close_modify_1 As icon.Cancel:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =60
+        Icon: =Icon.Cancel
+        OnSelect: |-
+            =UpdateContext({
+                locModalCmp_modify: false,
+                locModalCnt_modify: false
+            });
+        PaddingBottom: =10
+        PaddingLeft: =10
+        PaddingRight: =10
+        PaddingTop: =10
+        Visible: =locModalCmp_modify Or locModalCnt_modify
+        Width: =60
+        X: =540
+        Y: =301
+        ZIndex: =25
+
+    grp_icn_top_modify_1 As group:
+        Height: =5
+        Width: =5
+        X: =80
+        Y: =80
+        ZIndex: =25
+
+        icn_set_back_write_1 As icon.BackArrow:
+            Color: =RGBA(255, 255, 255, 1)
+            DisplayMode: |-
+                =If(
+                    locModalCmp_modify Or locModalCnt_modify,
+                    DisplayMode.Disabled,
+                    DisplayMode.Edit
+                )
+            Height: =55
+            Icon: =Icon.BackArrow
+            OnSelect: |
+                =Back();
+                Reset(lb_search_company_modify_1);
+                Reset(lb_search_contract_modify_1);
+                Reset(txt_sol_detail_write_1);
+                Reset(txt_sol_title_write_1);
+                Reset(cmb_cnt_modify_1);
+                Reset(cmb_job_modify_1);
+            PaddingBottom: =5
+            PaddingLeft: =5
+            PaddingRight: =5
+            PaddingTop: =5
+            Tooltip: ="뒤로가요"
+            Width: =55
+            ZIndex: =23
+
+        icn_view_write_1 As icon.Edit:
+            Color: =RGBA(255, 255, 255, 1)
+            DisplayMode: |-
+                =If(
+                    locModalCmp_modify Or locModalCnt_modify,
+                    DisplayMode.Disabled,
+                    DisplayMode.Edit
+                )
+            Height: =55
+            Icon: =Icon.Post
+            OnSelect: |-
+                =Refresh(SET_INFO_TB_V3);
+                
+                /*
+                ClearCollect(colSet,
+                    {
+                        sol_title : LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).SOL_NAME,
+                        sol_detail : LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).SOL_DETAIL,
+                        com_id : Text(LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).COMPANY_ID),
+                        com_name : LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).COMPANY_NAME,
+                        con_id : Text(LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).CONT_ID),
+                        con_name : LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).CONT_NAME,
+                        cnt_div : LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).CONT_VAL,
+                        job_div : LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).DIV_VALUE,
+                        free_min : Text(LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).FREE_MINUTE), // 추가 23.03.08
+                        paid_min : Text(LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).PAID_MINUTE) // 추가 23.03.08
+                    }
+                );
+                */
+                
+                // 23.06.09 AZURE SQL SERVER 연결
+                        ClearCollect(colSet,
+                            {
+                                sol_title : LookUp(SET_INFO_TB_V3, USER_EMAIL = gblUser).SOL_NAME,
+                                sol_detail : LookUp(SET_INFO_TB_V3, USER_EMAIL = gblUser).SOL_DETAIL,
+                                com_id : Text(LookUp(SET_INFO_TB_V3, USER_EMAIL = gblUser).COMPANY_ID),
+                                com_name : LookUp(SET_INFO_TB_V3, USER_EMAIL = gblUser).COMPANY_NAME,
+                                con_id : Text(LookUp(SET_INFO_TB_V3, USER_EMAIL = gblUser).CONT_ID),
+                                con_name : LookUp(SET_INFO_TB_V3, USER_EMAIL = gblUser).CONT_NAME,
+                                cnt_div : LookUp(SET_INFO_TB_V3, USER_EMAIL = gblUser).CONT_VAL,
+                                job_div : LookUp(SET_INFO_TB_V3, USER_EMAIL = gblUser).DIV_VALUE,
+                                free_min : Text(LookUp(SET_INFO_TB_V3, USER_EMAIL = gblUser).FREE_MINUTE),
+                                paid_min : Text(LookUp(SET_INFO_TB_V3, USER_EMAIL = gblUser).PAID_MINUTE) 
+                            }
+                        );
+                
+                Navigate('11bogo-show');
+                
+                Reset(lb_search_company_modify_1);
+                Reset(lb_search_contract_modify_1);
+                Reset(txt_sol_detail_write_1);
+                Reset(txt_sol_title_write_1);
+                //Clear(colSendSet);
+                Clear(colSendSetv2);
+            PaddingBottom: =5
+            PaddingLeft: =5
+            PaddingRight: =5
+            PaddingTop: =5
+            Tooltip: ="저장내용을 확인해요"
+            Width: =55
+            X: =585
+            ZIndex: =24
+
+    grp_modal_modify_1 As group:
+        Height: =5
+        Width: =5
+        X: =80
+        Y: =80
+        ZIndex: =25
+
+        btn_modal_title_modify_1 As button:
+            BorderThickness: =0
+            DisplayMode: =DisplayMode.View
+            Fill: =RGBA(49, 59, 77, 80%)
+            Height: =60
+            HoverFill: =RGBA(49, 59, 77, 1)
+            PressedFill: =RGBA(49, 59, 77, 1)
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =16
+            Text: |-
+                =If(
+                    locModalCmp_modify,
+                    "회사명 - 검색",
+                    locModalCnt_modify,
+                    "계약명 - 검색"
+                )
+            Visible: =locModalCmp_modify Or locModalCnt_modify
+            Width: =570
+            X: =35
+            Y: =300
+            ZIndex: =17
+
+        btn_modal_content_modify_1 As button:
+            BorderThickness: =0
+            DisplayMode: =DisplayMode.View
+            Fill: =RGBA(49, 59, 77, 50%)
+            Height: =350
+            HoverFill: =RGBA(49, 59, 77, 1)
+            PressedFill: =RGBA(49, 59, 77, 1)
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =24
+            Text: =""
+            Visible: =locModalCmp_modify Or locModalCnt_modify
+            Width: =570
+            X: =35
+            Y: =360
+            ZIndex: =18
+
+    txt_free_min_modi_1 As text:
+        Align: =Align.Center
+        BorderColor: =RGBA(255, 255, 255, 1)
+        Color: =RGBA(255, 255, 255, 1)
+        Default: =First(colSelectBogo).free_min
+        Fill: =RGBA(0, 0, 0, 0)
+        FontWeight: =FontWeight.Semibold
+        Format: =TextFormat.Number
+        Height: =50
+        HintText: =//"solution title"
+        HoverBorderColor: =RGBA(240, 240, 240, 0.14)
+        HoverFill: =ColorFade(RGBA(230, 239, 239, 50%), 0%)
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0
+        PaddingTop: =0
+        Size: =16
+        Width: =100
+        X: =180
+        Y: =1010
+        ZIndex: =26
+
+    lbl_free_min_modi_1 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =50
+        Size: =16
+        Text: ="무상 시간"
+        Width: =110
+        X: =40
+        Y: =1010
+        ZIndex: =27
+
+    lbl_paid_min_modi_1 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =50
+        Size: =16
+        Text: |-
+            ="유상 시간
+            "
+        Width: =110
+        X: =360
+        Y: =1010
+        ZIndex: =28
+
+    txt_paid_min_modi_1 As text:
+        Align: =Align.Center
+        BorderColor: =RGBA(255, 255, 255, 1)
+        Color: =RGBA(255, 255, 255, 1)
+        Default: =First(colSelectBogo).paid_min
+        Fill: =RGBA(0, 0, 0, 0)
+        FontWeight: =FontWeight.Semibold
+        Format: =TextFormat.Number
+        Height: =50
+        HintText: =//"solution title"
+        HoverBorderColor: =RGBA(240, 240, 240, 0.14)
+        HoverFill: =ColorFade(RGBA(230, 239, 239, 50%), 0%)
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0
+        PaddingTop: =0
+        Size: =16
+        Width: =100
+        X: =500
+        Y: =1010
+        ZIndex: =29
+
