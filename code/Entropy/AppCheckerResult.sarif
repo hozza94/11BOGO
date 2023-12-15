@@ -415,17 +415,17 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'11bogo-modify-list'.gal_company_modify_1.Items"
+                  "fullyQualifiedName": "'11bogo-modify-sel'.gal_company_modify_sel.Items"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'11bogo-modify-list'.gal_company_modify_1.Items",
+                  "fullyQualifiedName": "'11bogo-modify-sel'.gal_company_modify_sel.Items",
                   "relativeAddress": 0
                 },
                 "region": {
                   "charLength": 2,
-                  "charOffset": 152,
+                  "charOffset": 156,
                   "snippet": {
                     "text": "in"
                   }
@@ -433,8 +433,8 @@
               },
               "properties": {
                 "member": "Items",
-                "module": "11bogo-modify-list",
-                "type": "'11bogo-modify-list'.gal_company_modify_1"
+                "module": "11bogo-modify-sel",
+                "type": "'11bogo-modify-sel'.gal_company_modify_sel"
               }
             }
           ],
@@ -455,17 +455,17 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'11bogo-modify-list'.gal_company_modify_1.Items"
+                  "fullyQualifiedName": "'11bogo-modify-sel'.gal_company_modify_sel.Items"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'11bogo-modify-list'.gal_company_modify_1.Items",
+                  "fullyQualifiedName": "'11bogo-modify-sel'.gal_company_modify_sel.Items",
                   "relativeAddress": 0
                 },
                 "region": {
                   "charLength": 2,
-                  "charOffset": 218,
+                  "charOffset": 222,
                   "snippet": {
                     "text": "in"
                   }
@@ -473,8 +473,8 @@
               },
               "properties": {
                 "member": "Items",
-                "module": "11bogo-modify-list",
-                "type": "'11bogo-modify-list'.gal_company_modify_1"
+                "module": "11bogo-modify-sel",
+                "type": "'11bogo-modify-sel'.gal_company_modify_sel"
               }
             }
           ],
@@ -495,17 +495,17 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'11bogo-modify-list'.gal_contract_modify_1.Items"
+                  "fullyQualifiedName": "'11bogo-modify-sel'.gal_contract_modify_sel.Items"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'11bogo-modify-list'.gal_contract_modify_1.Items",
+                  "fullyQualifiedName": "'11bogo-modify-sel'.gal_contract_modify_sel.Items",
                   "relativeAddress": 0
                 },
                 "region": {
                   "charLength": 2,
-                  "charOffset": 155,
+                  "charOffset": 159,
                   "snippet": {
                     "text": "in"
                   }
@@ -513,8 +513,8 @@
               },
               "properties": {
                 "member": "Items",
-                "module": "11bogo-modify-list",
-                "type": "'11bogo-modify-list'.gal_contract_modify_1"
+                "module": "11bogo-modify-sel",
+                "type": "'11bogo-modify-sel'.gal_contract_modify_sel"
               }
             }
           ],
@@ -535,17 +535,17 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'11bogo-modify-list'.gal_contract_modify_1.Items"
+                  "fullyQualifiedName": "'11bogo-modify-sel'.gal_contract_modify_sel.Items"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'11bogo-modify-list'.gal_contract_modify_1.Items",
+                  "fullyQualifiedName": "'11bogo-modify-sel'.gal_contract_modify_sel.Items",
                   "relativeAddress": 0
                 },
                 "region": {
                   "charLength": 2,
-                  "charOffset": 224,
+                  "charOffset": 228,
                   "snippet": {
                     "text": "in"
                   }
@@ -553,8 +553,8 @@
               },
               "properties": {
                 "member": "Items",
-                "module": "11bogo-modify-list",
-                "type": "'11bogo-modify-list'.gal_contract_modify_1"
+                "module": "11bogo-modify-sel",
+                "type": "'11bogo-modify-sel'.gal_contract_modify_sel"
               }
             }
           ],
@@ -1818,66 +1818,6 @@
                 "member": "TabIndex",
                 "module": "11bogo-list",
                 "type": "'11bogo-list'.icn_refresh_list"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 4
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'11bogo-list'.icn_edit_page_1.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'11bogo-list'.icn_edit_page_1.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "11bogo-list",
-                "type": "'11bogo-list'.icn_edit_page_1"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 3
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'11bogo-list'.icn_edit_page_1.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'11bogo-list'.icn_edit_page_1.TabIndex",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "TabIndex",
-                "module": "11bogo-list",
-                "type": "'11bogo-list'.icn_edit_page_1"
               }
             }
           ],
@@ -4445,19 +4385,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'11bogo-modify-list'.icn_set_back_write_1.AccessibleLabel"
+                  "fullyQualifiedName": "'11bogo-modify-sel'.icn_set_back_write_sel.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'11bogo-modify-list'.icn_set_back_write_1.AccessibleLabel",
+                  "fullyQualifiedName": "'11bogo-modify-sel'.icn_set_back_write_sel.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
-                "module": "11bogo-modify-list",
-                "type": "'11bogo-modify-list'.icn_set_back_write_1"
+                "module": "11bogo-modify-sel",
+                "type": "'11bogo-modify-sel'.icn_set_back_write_sel"
               }
             }
           ],
@@ -4475,19 +4415,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'11bogo-modify-list'.icn_set_back_write_1.TabIndex"
+                  "fullyQualifiedName": "'11bogo-modify-sel'.icn_set_back_write_sel.TabIndex"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'11bogo-modify-list'.icn_set_back_write_1.TabIndex",
+                  "fullyQualifiedName": "'11bogo-modify-sel'.icn_set_back_write_sel.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "TabIndex",
-                "module": "11bogo-modify-list",
-                "type": "'11bogo-modify-list'.icn_set_back_write_1"
+                "module": "11bogo-modify-sel",
+                "type": "'11bogo-modify-sel'.icn_set_back_write_sel"
               }
             }
           ],
@@ -4505,49 +4445,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'11bogo-modify-list'.icn_save_modify_1.AccessibleLabel"
+                  "fullyQualifiedName": "'11bogo-modify-sel'.icn_save_modify_sel.TabIndex"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'11bogo-modify-list'.icn_save_modify_1.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "11bogo-modify-list",
-                "type": "'11bogo-modify-list'.icn_save_modify_1"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 3
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'11bogo-modify-list'.icn_save_modify_1.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'11bogo-modify-list'.icn_save_modify_1.TabIndex",
+                  "fullyQualifiedName": "'11bogo-modify-sel'.icn_save_modify_sel.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "TabIndex",
-                "module": "11bogo-modify-list",
-                "type": "'11bogo-modify-list'.icn_save_modify_1"
+                "module": "11bogo-modify-sel",
+                "type": "'11bogo-modify-sel'.icn_save_modify_sel"
               }
             }
           ],
@@ -4565,19 +4475,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'11bogo-modify-list'.icn_reset_modify_1.AccessibleLabel"
+                  "fullyQualifiedName": "'11bogo-modify-sel'.icn_save_modify_sel.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'11bogo-modify-list'.icn_reset_modify_1.AccessibleLabel",
+                  "fullyQualifiedName": "'11bogo-modify-sel'.icn_save_modify_sel.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
-                "module": "11bogo-modify-list",
-                "type": "'11bogo-modify-list'.icn_reset_modify_1"
+                "module": "11bogo-modify-sel",
+                "type": "'11bogo-modify-sel'.icn_save_modify_sel"
               }
             }
           ],
@@ -4595,19 +4505,49 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'11bogo-modify-list'.icn_reset_modify_1.TabIndex"
+                  "fullyQualifiedName": "'11bogo-modify-sel'.icn_reset_modify_sel.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'11bogo-modify-list'.icn_reset_modify_1.TabIndex",
+                  "fullyQualifiedName": "'11bogo-modify-sel'.icn_reset_modify_sel.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "11bogo-modify-sel",
+                "type": "'11bogo-modify-sel'.icn_reset_modify_sel"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 3
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'11bogo-modify-sel'.icn_reset_modify_sel.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'11bogo-modify-sel'.icn_reset_modify_sel.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "TabIndex",
-                "module": "11bogo-modify-list",
-                "type": "'11bogo-modify-list'.icn_reset_modify_1"
+                "module": "11bogo-modify-sel",
+                "type": "'11bogo-modify-sel'.icn_reset_modify_sel"
               }
             }
           ],
@@ -4625,19 +4565,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'11bogo-modify-list'.icn_view_write_1.AccessibleLabel"
+                  "fullyQualifiedName": "'11bogo-modify-sel'.shpbgSelect_modify_sel.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'11bogo-modify-list'.icn_view_write_1.AccessibleLabel",
+                  "fullyQualifiedName": "'11bogo-modify-sel'.shpbgSelect_modify_sel.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
-                "module": "11bogo-modify-list",
-                "type": "'11bogo-modify-list'.icn_view_write_1"
+                "module": "11bogo-modify-sel",
+                "type": "'11bogo-modify-sel'.shpbgSelect_modify_sel"
               }
             }
           ],
@@ -4655,19 +4595,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'11bogo-modify-list'.icn_view_write_1.TabIndex"
+                  "fullyQualifiedName": "'11bogo-modify-sel'.shpbgSelect_modify_sel.TabIndex"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'11bogo-modify-list'.icn_view_write_1.TabIndex",
+                  "fullyQualifiedName": "'11bogo-modify-sel'.shpbgSelect_modify_sel.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "TabIndex",
-                "module": "11bogo-modify-list",
-                "type": "'11bogo-modify-list'.icn_view_write_1"
+                "module": "11bogo-modify-sel",
+                "type": "'11bogo-modify-sel'.shpbgSelect_modify_sel"
               }
             }
           ],
@@ -4685,19 +4625,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'11bogo-modify-list'.shpbgSelect_modify_1.AccessibleLabel"
+                  "fullyQualifiedName": "'11bogo-modify-sel'.txt_sol_title_write_sel.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'11bogo-modify-list'.shpbgSelect_modify_1.AccessibleLabel",
+                  "fullyQualifiedName": "'11bogo-modify-sel'.txt_sol_title_write_sel.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
-                "module": "11bogo-modify-list",
-                "type": "'11bogo-modify-list'.shpbgSelect_modify_1"
+                "module": "11bogo-modify-sel",
+                "type": "'11bogo-modify-sel'.txt_sol_title_write_sel"
               }
             }
           ],
@@ -4715,19 +4655,79 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'11bogo-modify-list'.shpbgSelect_modify_1.TabIndex"
+                  "fullyQualifiedName": "'11bogo-modify-sel'.txt_sol_detail_write_sel.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'11bogo-modify-list'.shpbgSelect_modify_1.TabIndex",
+                  "fullyQualifiedName": "'11bogo-modify-sel'.txt_sol_detail_write_sel.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "11bogo-modify-sel",
+                "type": "'11bogo-modify-sel'.txt_sol_detail_write_sel"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 3
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'11bogo-modify-sel'.icn_close_modify_sel.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'11bogo-modify-sel'.icn_close_modify_sel.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "11bogo-modify-sel",
+                "type": "'11bogo-modify-sel'.icn_close_modify_sel"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 3
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'11bogo-modify-sel'.icn_close_modify_sel.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'11bogo-modify-sel'.icn_close_modify_sel.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "TabIndex",
-                "module": "11bogo-modify-list",
-                "type": "'11bogo-modify-list'.shpbgSelect_modify_1"
+                "module": "11bogo-modify-sel",
+                "type": "'11bogo-modify-sel'.icn_close_modify_sel"
               }
             }
           ],
@@ -4745,19 +4745,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'11bogo-modify-list'.txt_sol_title_write_1.AccessibleLabel"
+                  "fullyQualifiedName": "'11bogo-modify-sel'.gal_company_modify_sel.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'11bogo-modify-list'.txt_sol_title_write_1.AccessibleLabel",
+                  "fullyQualifiedName": "'11bogo-modify-sel'.gal_company_modify_sel.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
-                "module": "11bogo-modify-list",
-                "type": "'11bogo-modify-list'.txt_sol_title_write_1"
+                "module": "11bogo-modify-sel",
+                "type": "'11bogo-modify-sel'.gal_company_modify_sel"
               }
             }
           ],
@@ -4775,79 +4775,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'11bogo-modify-list'.txt_sol_detail_write_1.AccessibleLabel"
+                  "fullyQualifiedName": "'11bogo-modify-sel'.gal_company_modify_sel.TabIndex"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'11bogo-modify-list'.txt_sol_detail_write_1.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "11bogo-modify-list",
-                "type": "'11bogo-modify-list'.txt_sol_detail_write_1"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 3
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'11bogo-modify-list'.icn_close_modify_1.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'11bogo-modify-list'.icn_close_modify_1.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "11bogo-modify-list",
-                "type": "'11bogo-modify-list'.icn_close_modify_1"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 3
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'11bogo-modify-list'.icn_close_modify_1.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'11bogo-modify-list'.icn_close_modify_1.TabIndex",
+                  "fullyQualifiedName": "'11bogo-modify-sel'.gal_company_modify_sel.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "TabIndex",
-                "module": "11bogo-modify-list",
-                "type": "'11bogo-modify-list'.icn_close_modify_1"
+                "module": "11bogo-modify-sel",
+                "type": "'11bogo-modify-sel'.gal_company_modify_sel"
               }
             }
           ],
@@ -4865,19 +4805,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'11bogo-modify-list'.gal_company_modify_1.AccessibleLabel"
+                  "fullyQualifiedName": "'11bogo-modify-sel'.gal_contract_modify_sel.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'11bogo-modify-list'.gal_company_modify_1.AccessibleLabel",
+                  "fullyQualifiedName": "'11bogo-modify-sel'.gal_contract_modify_sel.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
-                "module": "11bogo-modify-list",
-                "type": "'11bogo-modify-list'.gal_company_modify_1"
+                "module": "11bogo-modify-sel",
+                "type": "'11bogo-modify-sel'.gal_contract_modify_sel"
               }
             }
           ],
@@ -4895,19 +4835,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'11bogo-modify-list'.gal_company_modify_1.TabIndex"
+                  "fullyQualifiedName": "'11bogo-modify-sel'.gal_contract_modify_sel.TabIndex"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'11bogo-modify-list'.gal_company_modify_1.TabIndex",
+                  "fullyQualifiedName": "'11bogo-modify-sel'.gal_contract_modify_sel.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "TabIndex",
-                "module": "11bogo-modify-list",
-                "type": "'11bogo-modify-list'.gal_company_modify_1"
+                "module": "11bogo-modify-sel",
+                "type": "'11bogo-modify-sel'.gal_contract_modify_sel"
               }
             }
           ],
@@ -4925,19 +4865,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'11bogo-modify-list'.gal_contract_modify_1.AccessibleLabel"
+                  "fullyQualifiedName": "'11bogo-modify-sel'.lb_search_company_modify_sel.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'11bogo-modify-list'.gal_contract_modify_1.AccessibleLabel",
+                  "fullyQualifiedName": "'11bogo-modify-sel'.lb_search_company_modify_sel.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
-                "module": "11bogo-modify-list",
-                "type": "'11bogo-modify-list'.gal_contract_modify_1"
+                "module": "11bogo-modify-sel",
+                "type": "'11bogo-modify-sel'.lb_search_company_modify_sel"
               }
             }
           ],
@@ -4955,19 +4895,49 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'11bogo-modify-list'.gal_contract_modify_1.TabIndex"
+                  "fullyQualifiedName": "'11bogo-modify-sel'.icn_com_search_modify_sel.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'11bogo-modify-list'.gal_contract_modify_1.TabIndex",
+                  "fullyQualifiedName": "'11bogo-modify-sel'.icn_com_search_modify_sel.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "11bogo-modify-sel",
+                "type": "'11bogo-modify-sel'.icn_com_search_modify_sel"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 3
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'11bogo-modify-sel'.icn_com_search_modify_sel.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'11bogo-modify-sel'.icn_com_search_modify_sel.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "TabIndex",
-                "module": "11bogo-modify-list",
-                "type": "'11bogo-modify-list'.gal_contract_modify_1"
+                "module": "11bogo-modify-sel",
+                "type": "'11bogo-modify-sel'.icn_com_search_modify_sel"
               }
             }
           ],
@@ -4985,19 +4955,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'11bogo-modify-list'.lb_search_company_modify_1.AccessibleLabel"
+                  "fullyQualifiedName": "'11bogo-modify-sel'.lb_search_contract_modify_sel.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'11bogo-modify-list'.lb_search_company_modify_1.AccessibleLabel",
+                  "fullyQualifiedName": "'11bogo-modify-sel'.lb_search_contract_modify_sel.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
-                "module": "11bogo-modify-list",
-                "type": "'11bogo-modify-list'.lb_search_company_modify_1"
+                "module": "11bogo-modify-sel",
+                "type": "'11bogo-modify-sel'.lb_search_contract_modify_sel"
               }
             }
           ],
@@ -5015,19 +4985,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'11bogo-modify-list'.icn_com_search_modify_1.AccessibleLabel"
+                  "fullyQualifiedName": "'11bogo-modify-sel'.icn_cnt_search_modify_sel.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'11bogo-modify-list'.icn_com_search_modify_1.AccessibleLabel",
+                  "fullyQualifiedName": "'11bogo-modify-sel'.icn_cnt_search_modify_sel.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
-                "module": "11bogo-modify-list",
-                "type": "'11bogo-modify-list'.icn_com_search_modify_1"
+                "module": "11bogo-modify-sel",
+                "type": "'11bogo-modify-sel'.icn_cnt_search_modify_sel"
               }
             }
           ],
@@ -5045,19 +5015,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'11bogo-modify-list'.icn_com_search_modify_1.TabIndex"
+                  "fullyQualifiedName": "'11bogo-modify-sel'.icn_cnt_search_modify_sel.TabIndex"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'11bogo-modify-list'.icn_com_search_modify_1.TabIndex",
+                  "fullyQualifiedName": "'11bogo-modify-sel'.icn_cnt_search_modify_sel.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "TabIndex",
-                "module": "11bogo-modify-list",
-                "type": "'11bogo-modify-list'.icn_com_search_modify_1"
+                "module": "11bogo-modify-sel",
+                "type": "'11bogo-modify-sel'.icn_cnt_search_modify_sel"
               }
             }
           ],
@@ -5075,19 +5045,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'11bogo-modify-list'.lb_search_contract_modify_1.AccessibleLabel"
+                  "fullyQualifiedName": "'11bogo-modify-sel'.cmb_cnt_modify_sel.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'11bogo-modify-list'.lb_search_contract_modify_1.AccessibleLabel",
+                  "fullyQualifiedName": "'11bogo-modify-sel'.cmb_cnt_modify_sel.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
-                "module": "11bogo-modify-list",
-                "type": "'11bogo-modify-list'.lb_search_contract_modify_1"
+                "module": "11bogo-modify-sel",
+                "type": "'11bogo-modify-sel'.cmb_cnt_modify_sel"
               }
             }
           ],
@@ -5105,19 +5075,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'11bogo-modify-list'.icn_cnt_search_modify_1.AccessibleLabel"
+                  "fullyQualifiedName": "'11bogo-modify-sel'.cmb_job_modify_sel.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'11bogo-modify-list'.icn_cnt_search_modify_1.AccessibleLabel",
+                  "fullyQualifiedName": "'11bogo-modify-sel'.cmb_job_modify_sel.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
-                "module": "11bogo-modify-list",
-                "type": "'11bogo-modify-list'.icn_cnt_search_modify_1"
+                "module": "11bogo-modify-sel",
+                "type": "'11bogo-modify-sel'.cmb_job_modify_sel"
               }
             }
           ],
@@ -5135,49 +5105,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'11bogo-modify-list'.icn_cnt_search_modify_1.TabIndex"
+                  "fullyQualifiedName": "'11bogo-modify-sel'.txt_free_min_modi_sel.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'11bogo-modify-list'.icn_cnt_search_modify_1.TabIndex",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "TabIndex",
-                "module": "11bogo-modify-list",
-                "type": "'11bogo-modify-list'.icn_cnt_search_modify_1"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 4
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'11bogo-modify-list'.cmb_cnt_modify_1.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'11bogo-modify-list'.cmb_cnt_modify_1.AccessibleLabel",
+                  "fullyQualifiedName": "'11bogo-modify-sel'.txt_free_min_modi_sel.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
-                "module": "11bogo-modify-list",
-                "type": "'11bogo-modify-list'.cmb_cnt_modify_1"
+                "module": "11bogo-modify-sel",
+                "type": "'11bogo-modify-sel'.txt_free_min_modi_sel"
               }
             }
           ],
@@ -5195,79 +5135,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'11bogo-modify-list'.cmb_job_modify_1.AccessibleLabel"
+                  "fullyQualifiedName": "'11bogo-modify-sel'.txt_paid_min_modi_sel.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'11bogo-modify-list'.cmb_job_modify_1.AccessibleLabel",
+                  "fullyQualifiedName": "'11bogo-modify-sel'.txt_paid_min_modi_sel.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
-                "module": "11bogo-modify-list",
-                "type": "'11bogo-modify-list'.cmb_job_modify_1"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 3
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'11bogo-modify-list'.txt_free_min_modi_1.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'11bogo-modify-list'.txt_free_min_modi_1.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "11bogo-modify-list",
-                "type": "'11bogo-modify-list'.txt_free_min_modi_1"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 3
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'11bogo-modify-list'.txt_paid_min_modi_1.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'11bogo-modify-list'.txt_paid_min_modi_1.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "11bogo-modify-list",
-                "type": "'11bogo-modify-list'.txt_paid_min_modi_1"
+                "module": "11bogo-modify-sel",
+                "type": "'11bogo-modify-sel'.txt_paid_min_modi_sel"
               }
             }
           ],
@@ -5747,6 +5627,66 @@
                 "member": "locJobDiv",
                 "module": "11bogo-poem",
                 "type": "'11bogo-poem'"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedVariables",
+          "ruleIndex": 6
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'11bogo-modify-sel'.locCntDiv_modify"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'11bogo-modify-sel'.locCntDiv_modify",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "locCntDiv_modify",
+                "module": "11bogo-modify-sel",
+                "type": "'11bogo-modify-sel'"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedVariables",
+          "ruleIndex": 6
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'11bogo-modify-sel'.locJobDiv_modify"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'11bogo-modify-sel'.locJobDiv_modify",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "locJobDiv_modify",
+                "module": "11bogo-modify-sel",
+                "type": "'11bogo-modify-sel'"
               }
             }
           ],

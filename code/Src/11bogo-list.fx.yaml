@@ -138,6 +138,7 @@
                         
                         ClearCollect(colSelectBogo,
                             {
+                                bogo_id : ThisItem.ID,
                                 sol_title : ThisItem.Title,
                                 sol_detail : ThisItem.'Solution 상세 내용',
                                 //com_id : 1,
@@ -151,7 +152,7 @@
                             }
                         );
                         
-                        Navigate('11bogo-modify-list');
+                        Navigate('11bogo-modify-sel');
                     PressedFill: =RGBA(10, 70, 70, 0.4)
                     Width: =630
                     ZIndex: =6
@@ -251,53 +252,6 @@
             Width: =55
             ZIndex: =6
 
-        icn_edit_page_1 As icon.Edit:
-            Color: =RGBA(255, 255, 255, 1)
-            Height: =55
-            Icon: =Icon.Settings
-            OnSelect: |-
-                =//Navigate('11bogo-setting')
-                // 23.06.09 AZURE SQL SERVER 연결
-                ClearCollect(colSet,
-                    {
-                        sol_title : LookUp(SET_INFO_TB_V3, USER_EMAIL = gblUser).SOL_NAME,
-                        sol_detail : LookUp(SET_INFO_TB_V3, USER_EMAIL = gblUser).SOL_DETAIL,
-                        com_id : Text(LookUp(SET_INFO_TB_V3, USER_EMAIL = gblUser).COMPANY_ID),
-                        com_name : LookUp(SET_INFO_TB_V3, USER_EMAIL = gblUser).COMPANY_NAME,
-                        con_id : Text(LookUp(SET_INFO_TB_V3, USER_EMAIL = gblUser).CONT_ID),
-                        con_name : LookUp(SET_INFO_TB_V3, USER_EMAIL = gblUser).CONT_NAME,
-                        cnt_div : LookUp(SET_INFO_TB_V3, USER_EMAIL = gblUser).CONT_VAL,
-                        job_div : LookUp(SET_INFO_TB_V3, USER_EMAIL = gblUser).DIV_VALUE,
-                        free_min : Text(LookUp(SET_INFO_TB_V3, USER_EMAIL = gblUser).FREE_MINUTE),
-                        paid_min : Text(LookUp(SET_INFO_TB_V3, USER_EMAIL = gblUser).PAID_MINUTE) 
-                    }
-                );
-                /*
-                ClearCollect(colSet,
-                    {
-                        sol_title : LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).SOL_NAME,
-                        sol_detail : LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).SOL_DETAIL,
-                        com_id : Text(LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).COMPANY_ID),
-                        com_name : LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).COMPANY_NAME,
-                        con_id : Text(LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).CONT_ID),
-                        con_name : LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).CONT_NAME,
-                        cnt_div : LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).CONT_VAL,
-                        job_div : LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).DIV_VALUE,
-                        free_min : Text(LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).FREE_MINUTE), // 추가 23.03.08
-                        paid_min : Text(LookUp(SET_INFO_TB_V2, USER_EMAIL = gblUser).PAID_MINUTE) // 추가 23.03.08
-                    }
-                );
-                */
-                Navigate('11bogo-modify')
-            PaddingBottom: =5
-            PaddingLeft: =5
-            PaddingRight: =5
-            PaddingTop: =5
-            Tooltip: ="수정화면으로 전환해요"
-            Width: =55
-            X: =585
-            ZIndex: =8
-
         icn_refresh_list As icon.Reload:
             Color: =RGBA(255, 255, 255, 1)
             Height: =55
@@ -311,6 +265,6 @@
             PaddingTop: =5
             Tooltip: ="DB와 동기화해요"
             Width: =55
-            X: =530
+            X: =585
             ZIndex: =9
 

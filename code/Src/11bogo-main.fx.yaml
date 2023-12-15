@@ -359,7 +359,7 @@
             )
         Width: =60
         X: =410
-        Y: =597
+        Y: =800
         ZIndex: =17
 
     icn_list As icon.Add:
