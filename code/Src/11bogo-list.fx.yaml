@@ -8,6 +8,7 @@
             colBogoFullList, Filter(
                 '일일보고 Solution',
                 '만든 사람'.DisplayName = gblName
+                //'만든 사람'.DisplayName = "Lucy Hong"
                 )
         );
         

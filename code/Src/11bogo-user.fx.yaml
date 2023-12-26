@@ -1,4 +1,4 @@
-"'11bogo-add' As screen":
+"'11bogo-user' As screen":
     BackgroundImage: =bgi_resize
     OnHidden: |-
         =Clear(colSendSetv2);
@@ -12,9 +12,19 @@
         UpdateContext({
             job_value_tb : Blank()
         });
-    OnVisible: =
+    OnVisible: |+
+        =ClearCollect(
+            colUserList,
+            Office365사용자.SearchUser({top: 999})
+        );
+        
+        ClearCollect(
+            colActUser,
+            Filter(colUserList, AccountEnabled = true && !IsBlank(Department) && !("퇴사자" in DisplayName))
+        );
+        
 
-    btn_title_poem_1 As button:
+    btn_title_user As button:
         BorderThickness: =0
         DisplayMode: =DisplayMode.View
         Fill: =RGBA(49, 59, 77, 1)
@@ -26,13 +36,11 @@
         RadiusTopLeft: =0
         RadiusTopRight: =0
         Size: =22
-        Text: |-
-            ="11BOGO - Member
-            "
+        Text: ="11BOGO - USER"
         Width: =640
         ZIndex: =1
 
-    shpbgSelect_poem_1 As rectangle:
+    shpbgSelect_user As rectangle:
         Fill: =RGBA(0, 0, 0, 0%)
         Height: =1076
         OnSelect: |
@@ -50,47 +58,7 @@
         Y: =55
         ZIndex: =2
 
-    txt_poem_content_1 As text:
-        BorderColor: =RGBA(255, 255, 255, 1)
-        Color: =RGBA(255, 255, 255, 1)
-        Default: |-
-            =// 첫 "<center><pre> 제거
-            Substitute(
-                LookUp(
-                    colPoem,
-                    POEM_TITLE = First(cmb_poem_title_1.SelectedItems).POEM_TITLE
-                ).POEM_CONTENT,
-                Char(34) & "<center><pre>",
-                ""
-            )
-        Fill: =RGBA(0, 0, 0, 0)
-        Height: =456
-        HintText: =//"solution detail"
-        HoverBorderColor: =RGBA(255, 255, 255, 1)
-        HoverFill: =ColorFade(RGBA(230, 239, 239, 50%), 0%)
-        Mode: =TextMode.MultiLine
-        Size: =16
-        Width: =560
-        X: =39
-        Y: =630
-        ZIndex: =3
-
-    txt_poem_title_1 As text:
-        BorderColor: =RGBA(255, 255, 255, 1)
-        Color: =RGBA(255, 255, 255, 1)
-        Default: =LookUp(colPoem, POEM_TITLE = First(cmb_poem_title_1.SelectedItems).POEM_TITLE).POEM_TITLE
-        Fill: =RGBA(0, 0, 0, 0)
-        Height: =70
-        HintText: =//"solution title"
-        HoverBorderColor: =RGBA(240, 240, 240, 0.14)
-        HoverFill: =ColorFade(RGBA(230, 239, 239, 50%), 0%)
-        Size: =16
-        Width: =560
-        X: =39
-        Y: =310
-        ZIndex: =4
-
-    icn_poem_back_1 As icon.BackArrow:
+    icn_user_back As icon.BackArrow:
         Color: =RGBA(255, 255, 255, 1)
         Height: =55
         Icon: =Icon.BackArrow
@@ -103,55 +71,7 @@
         Width: =55
         ZIndex: =5
 
-    txt_poem_poet_1 As text:
-        BorderColor: =RGBA(255, 255, 255, 1)
-        Color: =RGBA(255, 255, 255, 1)
-        Default: =LookUp(colPoem, POEM_TITLE = First(cmb_poem_title_1.SelectedItems).POEM_TITLE).POEM_WRITER
-        Fill: =RGBA(0, 0, 0, 0)
-        Height: =70
-        HintText: =//"solution title"
-        HoverBorderColor: =RGBA(240, 240, 240, 0.14)
-        HoverFill: =ColorFade(RGBA(230, 239, 239, 50%), 0%)
-        Size: =16
-        Width: =560
-        X: =39
-        Y: =470
-        ZIndex: =6
-
-    lbl_poem_title_1 As label:
-        Color: =RGBA(255, 255, 255, 1)
-        FontWeight: =FontWeight.Bold
-        Height: =50
-        Size: =16
-        Text: ="제목"
-        Width: =560
-        X: =39
-        Y: =250
-        ZIndex: =7
-
-    lbl_poem_poet_1 As label:
-        Color: =RGBA(255, 255, 255, 1)
-        FontWeight: =FontWeight.Bold
-        Height: =50
-        Size: =16
-        Text: ="시인"
-        Width: =560
-        X: =39
-        Y: =410
-        ZIndex: =8
-
-    lbl_poem_content_1 As label:
-        Color: =RGBA(255, 255, 255, 1)
-        FontWeight: =FontWeight.Bold
-        Height: =50
-        Size: =16
-        Text: ="시"
-        Width: =560
-        X: =40
-        Y: =570
-        ZIndex: =9
-
-    icn_save_2 As icon.Save:
+    icn_user_save As icon.Save:
         Color: =RGBA(255, 255, 255, 1)
         DisabledColor: =RGBA(128, 128, 128, 1)
         DisplayMode: |-
@@ -167,7 +87,7 @@
             ClearCollect(
                 colEditPoem,
                 {
-                    poem_title : txt_poem_title_1.Text,
+                    poem_title : txt_user_surname.Text,
                     poem_writer : txt_poem_poet_1.Text,
                     poem_content : txt_poem_content_1.Text
                 }
@@ -262,7 +182,7 @@
         X: =475
         ZIndex: =10
 
-    lbl_notice_3 As label:
+    lbl_user_notice As label:
         Align: =Align.Center
         Color: =RGBA(255, 255, 255, 1)
         FontWeight: =FontWeight.Bold
@@ -274,41 +194,29 @@
         Y: =70
         ZIndex: =11
 
-    cmb_poem_title_1 As combobox:
+    cmb_user As combobox:
         BorderColor: =RGBA(255, 255, 255, 1)
         ChevronBackground: =RGBA(0, 0, 0, 0)
         ChevronHoverBackground: =ColorFade(RGBA(230, 239, 239, 1), 50%)
         Color: =RGBA(255, 255, 255, 1)
-        DisplayFields: =["POEM_TITLE"]
+        DisplayFields: =["DisplayName"]
         Fill: =RGBA(0, 0, 0, 0)
         Height: =60
         HoverBorderColor: =//ColorFade(Self.BorderColor, 15%)
         HoverFill: =ColorFade(RGBA(230, 239, 239, 1), 50%)
-        InputTextPlaceholder: ="계약 구분"
-        IsSearchable: =false
-        Items: =colPoem
-        OnChange: |-
-            =UpdateContext({
-                locCntDiv: cmb_poem_title_1.SelectedItems
-            });
+        InputTextPlaceholder: ="사용자 이름"
+        Items: =colActUser
+        OnChange: =Clear(colSelUser);
         OnSelect: |-
-            =/*
-            If( 
-                locBgFlag,
-                UpdateContext({
-                    locBgFlag : false
-                }),
-                UpdateContext({
-                    locBgFlag : true
-                })
-            )
-            */
-            // 2023.01.16 주석처리 핸드폰에서 직접 사용 했을때 필요성이 느껴지지 않음
+            =ClearCollect(
+                colSelUser,
+                Self.SelectedItems
+            );
         PaddingBottom: =10
         PressedFill: =ColorFade(RGBA(230, 239, 239, 1), 50%)
         Reset: =true
-        SearchFields: =["POEM_TITLE"]
-        SearchItems: =[]
+        SearchFields: =["DisplayName"]
+        SearchItems: =Search(colActUser,cmb_user.SearchText,"DisplayName")
         SelectionFill: =//ColorFade(RGBA(230, 239, 239, 1), 0%)
         SelectMultiple: =false
         Size: =16
@@ -316,4 +224,98 @@
         X: =39
         Y: =152
         ZIndex: =12
+
+    Button2 As button:
+        Height: =70
+        OnSelect: |-
+            =Patch(
+                USER_TB_V3,
+                {
+                    USER_EMAIL: lbl_user_mail.Text,
+                    USER_NAME_ENG: lbl_user_surname.Text &" "& lbl_user_givenname.Text,
+                    USER_NAME_KOR: txt_user_korname.Text,
+                    ACTIVE_YN: "Y",
+                    NOTI_FLAG: "N",
+                    CRAETE_TIME: Now()
+                }
+            );
+        Size: =24
+        Text: ="버튼"
+        Width: =280
+        X: =34
+        Y: =1042
+        ZIndex: =13
+
+    txt_user_givenname As text:
+        BorderColor: =RGBA(255, 255, 255, 1)
+        Color: =RGBA(255, 255, 255, 1)
+        Default: =First(colSelUser).GivenName
+        Fill: =RGBA(0, 0, 0, 0)
+        Height: =70
+        HintText: =//"solution title"
+        HoverBorderColor: =RGBA(240, 240, 240, 0.14)
+        HoverFill: =ColorFade(RGBA(230, 239, 239, 50%), 0%)
+        Size: =16
+        Width: =560
+        X: =42
+        Y: =378
+        ZIndex: =16
+
+    txt_user_mail As text:
+        BorderColor: =RGBA(255, 255, 255, 1)
+        Color: =RGBA(255, 255, 255, 1)
+        Default: =First(colSelUser).UserPrincipalName
+        Fill: =RGBA(0, 0, 0, 0)
+        Height: =70
+        HintText: =//"solution title"
+        HoverBorderColor: =RGBA(240, 240, 240, 0.14)
+        HoverFill: =ColorFade(RGBA(230, 239, 239, 50%), 0%)
+        Size: =16
+        Width: =560
+        X: =42
+        Y: =670
+        ZIndex: =17
+
+    txt_user_department As text:
+        BorderColor: =RGBA(255, 255, 255, 1)
+        Color: =RGBA(255, 255, 255, 1)
+        Default: =First(colSelUser).Department
+        Fill: =RGBA(0, 0, 0, 0)
+        Height: =70
+        HintText: =//"solution title"
+        HoverBorderColor: =RGBA(240, 240, 240, 0.14)
+        HoverFill: =ColorFade(RGBA(230, 239, 239, 50%), 0%)
+        Size: =16
+        Width: =560
+        X: =40
+        Y: =572
+        ZIndex: =18
+
+    txt_user_korname As text:
+        BorderColor: =RGBA(255, 255, 255, 1)
+        Color: =RGBA(255, 255, 255, 1)
+        Default: =
+        Fill: =RGBA(0, 0, 0, 0)
+        Height: =70
+        HintText: ="한글 이름"
+        HoverBorderColor: =RGBA(240, 240, 240, 0.14)
+        HoverFill: =ColorFade(RGBA(230, 239, 239, 50%), 0%)
+        Size: =16
+        Width: =560
+        X: =42
+        Y: =475
+        ZIndex: =19
+
+    lbl_user_surname As label:
+        BorderColor: =RGBA(255, 255, 255, 1)
+        BorderThickness: =2
+        Color: =RGBA(255, 255, 255, 1)
+        FontWeight: =FontWeight.Semibold
+        Height: =60
+        Size: =16
+        Text: =First(colSelUser).Surname
+        Width: =560
+        X: =42
+        Y: =284
+        ZIndex: =20
 

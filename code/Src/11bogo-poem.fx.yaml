@@ -26,9 +26,7 @@
         RadiusTopLeft: =0
         RadiusTopRight: =0
         Size: =22
-        Text: |-
-            ="11BOGO - POEM
-            "
+        Text: ="11BOGO - POEM"
         Width: =640
         ZIndex: =1
 
