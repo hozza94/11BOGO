@@ -217,11 +217,12 @@
                         Value(First(colSet).con_id),
                         locCntId_modify
                         ),
-                    cnt_name : If(
+                    cnt_name : locCntName_modify
+                    /*If(
                         IsBlank(locCntName_modify),
                         First(colSet).con_name,
                         locCntName_modify
-                        ),
+                        )*/,
                     cnt_div : First(locCntDiv_modify).cnt_div,
                     job_div : First(locJobDiv_modify).job_div,
             
