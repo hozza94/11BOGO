@@ -63,8 +63,8 @@
       "displayName": "SQL Server",
       "executionRestrictions": {
         "apiId": "unknown",
-        "appVer": "3.23122.17",
-        "modifiedOn": "2024-01-02 02:01:50",
+        "appVer": "3.23122.19",
+        "modifiedOn": "2024-01-09 06:26:26",
         "policy": "{\"type\":\"unused\"}",
         "version": 1
       },
@@ -90,10 +90,9 @@
       "displayName": "SQL Server",
       "executionRestrictions": {
         "apiId": "/providers/microsoft.powerapps/apis/shared_sql",
-        "apiVer": 2,
-        "appVer": "3.23122.17",
-        "modifiedOn": "2024-01-02 02:01:50",
-        "policy": "{\"type\":\"tabular\",\"dataSources\":{\"[dbo].[vaca_tb_v3]\":[\"get\"],\"[dbo].[user_tb_v3]\":[\"post\",\"patch\",\"get\"],\"[dbo].[set_info_tb_v3]\":[\"post\",\"patch\",\"get\"],\"[dbo].[poem_tb_v3]\":[\"get\"]}}",
+        "appVer": "3.23122.19",
+        "modifiedOn": "2024-01-09 06:26:26",
+        "policy": "{\"type\":\"unused\"}",
         "version": 1
       },
       "iconUri": "https://connectoricons-prod.azureedge.net/u/shgogna/globalperconnector-train1/1.0.1639.3310/sql/icon.png",
