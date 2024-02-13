@@ -247,6 +247,7 @@
             Color: =RGBA(255, 255, 255, 1)
             FontWeight: =FontWeight.Semibold
             Height: =150
+            Overflow: =Overflow.Scroll
             Size: =16
             Text: =First(colSet).sol_detail
             Width: =560
