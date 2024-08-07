@@ -18,7 +18,11 @@ App As appinfo:
         //Set(gblSetKey, "SET001");
         Set(gblUser, User().Email);
         //Set(gblUser, "cindy.choi@mavencloudservice.com");
-        Set(gblName, User().FullName);
+        
+        // 2024.08.08 NOAH 수정 
+        // Noah Ku -> Noah(구자호)로 변경됨에 따라 함수 변경 Office365사용자.UserProfileV2(User().Email) 
+        //Set(gblName, User().FullName);
+        Set(gblName, Office365사용자.UserProfileV2(User().Email).displayName);
         
         // 공지사항 1번만 출력하도록 변수 설정
         //Set(gblNotiFlag, LookUp(USER_TB, USER_EMAIL = gblUser).NOTI_FLAG);

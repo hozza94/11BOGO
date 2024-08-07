@@ -496,7 +496,9 @@
         },
         "ZIndex",
         "Visible",
-        "MaxTemplateSize"
+        "MaxTemplateSize",
+        "#CopilotOverlayLabel",
+        "#CopilotOverlayVisible"
       ],
       "GalleryTemplateChildName": "galleryTemplate4_1",
       "HasDynamicProperties": false,
@@ -652,6 +654,16 @@
           "Category": "Design",
           "PropertyName": "MaxTemplateSize",
           "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "#CopilotOverlayLabel",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "#CopilotOverlayVisible",
+          "RuleProviderType": "Unknown"
         }
       ],
       "StyleName": "defaultGalleryStyle",
@@ -702,7 +714,9 @@
         "Height",
         "ZIndex",
         "Visible",
-        "MaxTemplateSize"
+        "MaxTemplateSize",
+        "#CopilotOverlayLabel",
+        "#CopilotOverlayVisible"
       ],
       "GalleryTemplateChildName": "galleryTemplate3_1",
       "HasDynamicProperties": false,
@@ -863,6 +877,16 @@
           "Category": "Design",
           "PropertyName": "MaxTemplateSize",
           "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "#CopilotOverlayLabel",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "#CopilotOverlayVisible",
+          "RuleProviderType": "Unknown"
         }
       ],
       "StyleName": "defaultGalleryStyle",
@@ -912,7 +936,9 @@
         "Height",
         "ZIndex",
         "Visible",
-        "MaxTemplateSize"
+        "MaxTemplateSize",
+        "#CopilotOverlayLabel",
+        "#CopilotOverlayVisible"
       ],
       "GalleryTemplateChildName": "galleryTemplate2_1",
       "HasDynamicProperties": false,
@@ -1067,6 +1093,16 @@
         {
           "Category": "Design",
           "PropertyName": "MaxTemplateSize",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "#CopilotOverlayLabel",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "#CopilotOverlayVisible",
           "RuleProviderType": "Unknown"
         }
       ],

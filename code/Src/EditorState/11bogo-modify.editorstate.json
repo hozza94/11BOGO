@@ -2801,7 +2801,9 @@
           "IsLockable": false,
           "NameMapSourceSchema": "?"
         },
-        "MaxTemplateSize"
+        "MaxTemplateSize",
+        "#CopilotOverlayLabel",
+        "#CopilotOverlayVisible"
       ],
       "GalleryTemplateChildName": "galleryTemplate1_2",
       "HasDynamicProperties": false,
@@ -2947,6 +2949,16 @@
           "Category": "Design",
           "PropertyName": "MaxTemplateSize",
           "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "#CopilotOverlayLabel",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "#CopilotOverlayVisible",
+          "RuleProviderType": "Unknown"
         }
       ],
       "StyleName": "defaultGalleryStyle",
@@ -3029,7 +3041,9 @@
           "IsLockable": false,
           "NameMapSourceSchema": "?"
         },
-        "MaxTemplateSize"
+        "MaxTemplateSize",
+        "#CopilotOverlayLabel",
+        "#CopilotOverlayVisible"
       ],
       "GalleryTemplateChildName": "galleryTemplate1_3",
       "HasDynamicProperties": false,
@@ -3175,6 +3189,16 @@
           "Category": "Design",
           "PropertyName": "MaxTemplateSize",
           "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "#CopilotOverlayLabel",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "#CopilotOverlayVisible",
+          "RuleProviderType": "Unknown"
         }
       ],
       "StyleName": "defaultGalleryStyle",
@@ -3256,7 +3280,7 @@
       "MetaDataIDKey": "",
       "Name": "grp_icn_top_modify",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 29,
+      "ParentIndex": 31,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -3308,7 +3332,7 @@
       "MetaDataIDKey": "",
       "Name": "grp_input_modify",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 31,
+      "ParentIndex": 30,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -3360,7 +3384,7 @@
       "MetaDataIDKey": "",
       "Name": "grp_lbl_modify",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 30,
+      "ParentIndex": 29,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {

@@ -53,6 +53,7 @@
             ZIndex: =1
 
             gal_bogo_list As gallery.galleryVertical:
+                '#CopilotOverlayLabel': ="필터링됨"
                 DelayItemLoading: =true
                 Height: =936
                 Items: |-

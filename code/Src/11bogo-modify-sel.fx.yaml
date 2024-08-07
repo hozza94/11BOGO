@@ -383,6 +383,7 @@
         ZIndex: =16
 
     gal_company_modify_sel As gallery.galleryVertical:
+        '#CopilotOverlayLabel': ="필터링됨"
         Height: =330
         Items: |-
             =If(
@@ -442,6 +443,7 @@
             ZIndex: =2
 
     gal_contract_modify_sel As gallery.galleryVertical:
+        '#CopilotOverlayLabel': ="필터링됨"
         Height: =330
         Items: |-
             =If(

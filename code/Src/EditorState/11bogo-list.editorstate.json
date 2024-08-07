@@ -495,7 +495,9 @@
           "InvariantPropertyName": "ShowNavigation",
           "IsLockable": false,
           "NameMapSourceSchema": "?"
-        }
+        },
+        "#CopilotOverlayLabel",
+        "#CopilotOverlayVisible"
       ],
       "GalleryTemplateChildName": "galleryTemplate11",
       "HasDynamicProperties": false,
@@ -646,6 +648,16 @@
           "Category": "Design",
           "PropertyName": "ShowNavigation",
           "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "#CopilotOverlayLabel",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "#CopilotOverlayVisible",
+          "RuleProviderType": "Unknown"
         }
       ],
       "StyleName": "defaultGalleryStyle",
@@ -699,7 +711,7 @@
       "MetaDataIDKey": "",
       "Name": "grp_column",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 9,
+      "ParentIndex": 10,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -751,7 +763,7 @@
       "MetaDataIDKey": "",
       "Name": "grp_icn_list",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 10,
+      "ParentIndex": 9,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
